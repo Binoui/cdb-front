@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { AppComponent } from './app.component';
 import { CompanyComponent } from './company/company.component';
 

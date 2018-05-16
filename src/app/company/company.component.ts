@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Company } from './company.model';
 
 @Component({
   selector: 'app-company',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyComponent implements OnInit {
 
+  company: Company;
+
   constructor() { }
 
   ngOnInit() {
+    this.company = {
+      id: 5,
+      name: "testCompany"
+    }
   }
 
 }
