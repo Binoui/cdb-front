@@ -1,14 +1,39 @@
-<mat-card class = map>
-  <mat-card-header class="title">
-    <mat-card-title>  {{ company.name }} </mat-card-title>
-  </mat-card-header>
+<!-- <card class=map>
+  <card-header class="title">
+    <card-title> {{ company.name }} </card-title>
+  </card-header>
 
-  <mat-card-content>
+  <card-content>
     <h4>Computer List :</h4>
-      <mat-card *ngFor="let computer of computers " >
-      <h3>Name : {{computer.name}} </h3>
-        <h3>Date d'introduction : {{computer.introduced}}</h3>
-        <h3>Date d'abandon : {{computer.discontinued}}</h3>
-      </mat-card >
-  </mat-card-content>
-</mat-card>
+    <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
+  </card-content>
+</card> -->
+
+<!-- <div class="card border-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">
+    <i class="fas fa-chevron-circle-right"></i>
+    ID : {{ company.id }}
+  </div>
+
+  <div class="card-body">
+
+    <h4 class="card-title">
+
+    </h4>
+    <p class="card-text">Click below to have more information about this company !</p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary">Learn More</button>
+  </div>
+</div> -->
+
+<div class="jumbotron">
+  <h3 class="display-3">
+    <i class="fas fa-industry"></i> Company :
+    <p class="text-primary">{{ company?.name }}</p>
+  </h3>
+  <p class="lead">Linked to this company are the following computers:</p>
+  <hr class="my-4">
+  <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
+</div>

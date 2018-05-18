@@ -1,14 +1,13 @@
-import {NgModule} from '@angular/core';
-import {AppRoutingModule} from './/app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
-import {AppComponent} from './app.component';
-import {CompanyComponent} from './company/company.component';
-import {CompaniesComponent} from './company/companies/companies.component';
-import {CompanyDetailComponent} from './company/company-detail/company-detail.component';
-import {ComputerComponent} from './computer/computer.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CustomMaterialModule} from './custom-material/custom-material.module';
+import { AppComponent } from './app.component';
+import { CompanyComponent } from './company/company.component';
+import { CompaniesComponent } from './company/companies/companies.component';
+import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
+import { ComputerComponent } from './computer/computer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import {CustomMaterialModule} from './custom-material/custom-material.module';
   ],
   imports: [
     BrowserAnimationsModule,
-    CustomMaterialModule,
     AppRoutingModule,
     HttpClientModule
   ],
