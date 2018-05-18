@@ -1,3 +1,16 @@
-<p>
-  Company {{ company.id }} : {{ company.name }}
-</p>
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">
+    <i class="fas fa-chevron-circle-right"></i>
+    ID : {{ company.id }}
+  </div>
+
+  <div class="card-body">
+    
+    <h4 class="card-title"><i class="fas fa-industry"></i>  Company : <p class="text-primary">{{ company.name }}</p></h4>
+    <p class="card-text">Click below to have more information about this company !</p>
+  </div>
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary">Learn More</button>
+  </div>
+</div>
