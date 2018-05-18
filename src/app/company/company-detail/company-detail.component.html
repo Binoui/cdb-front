@@ -4,11 +4,11 @@
   </mat-card-header>
 
   <mat-card-content>
-    <ul>
     <h4>Computer List :</h4>
-    <li *ngFor="let computer of computers ">
-      {{computer.name}}{{computer.introduced}} {{computer.discontinued}} {{computer.company}}
-    </li>
-    </ul>
+      <mat-card *ngFor="let computer of computers " >
+      <h3>Name : {{computer.name}} </h3>
+        <h3>Date d'introduction : {{computer.introduced}}</h3>
+        <h3>Date d'abandon : {{computer.discontinued}}</h3>
+      </mat-card >
   </mat-card-content>
 </mat-card>
