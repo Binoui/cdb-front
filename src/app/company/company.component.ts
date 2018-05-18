@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Company } from './company.model';
 
 @Component({
@@ -8,15 +8,11 @@ import { Company } from './company.model';
 })
 export class CompanyComponent implements OnInit {
 
-  company: Company;
+  @Input() company: Company;
 
   constructor() { }
 
   ngOnInit() {
-    this.company = {
-      id: 5,
-      name: "testCompany"
-    }
   }
 
 }
