@@ -7,6 +7,7 @@ import {ComputersComponent} from './computer/computers/computers.component';
 import {ComputerDetailComponent} from './computer/computer-detail/computer-detail.component';
 import {CompanyFormAddComponent} from './company/company-form-add/company-form-add.component';
 import {ComputerFormAddComponent} from './computer/computer-form-add/computer-form-add.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -40,8 +41,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
     path: '**',
-    redirectTo: 'companies',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];
