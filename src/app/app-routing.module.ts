@@ -5,15 +5,27 @@ import { CompaniesComponent } from './company/companies/companies.component';
 import {CompanyDetailComponent} from './company/company-detail/company-detail.component';
 import {ComputersComponent} from './computer/computers/computers.component';
 import {ComputerDetailComponent} from './computer/computer-detail/computer-detail.component';
+import {CompanyFormAddComponent} from './company/company-form-add/company-form-add.component';
+import {ComputerFormAddComponent} from './computer/computer-form-add/computer-form-add.component';
 
 const routes: Routes = [
+  {
+    path: 'computer/add',
+    component: ComputerFormAddComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'company/add',
+    component: CompanyFormAddComponent,
+    pathMatch: 'full',
+  },
   {
     path: 'computer/:id',
     component: ComputerDetailComponent,
     pathMatch: 'full',
   },
   {
-    path: 'company/:id',
+    path: 'computer/:id',
     component: CompanyDetailComponent,
     pathMatch: 'full',
   },

@@ -34,7 +34,7 @@ export class CompanyFormAddComponent implements OnInit {
   addCompany() {
     if (this.companyForm.valid) {
       this.company.name = this.companyForm.get('name').value;
-      this.companyService.addCompany(this.company.name).subscribe(() => this.router.navigate(['recipes']), () => console.log('ko'));
+      this.companyService.addCompany(this.company.name).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
     }
   }
 

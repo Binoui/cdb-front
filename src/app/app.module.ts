@@ -11,7 +11,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComputerDetailComponent} from './computer/computer-detail/computer-detail.component';
 import {ComputersComponent} from './computer/computers/computers.component';
 import {RouterModule} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CompanyFormAddComponent} from './company/company-form-add/company-form-add.component';
+import {ComputerFormAddComponent} from './computer/computer-form-add/computer-form-add.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {FormsModule} from '@angular/forms';
     ComputerComponent,
     ComputersComponent,
     ComputerDetailComponent,
+    CompanyFormAddComponent,
+    ComputerFormAddComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -29,6 +33,7 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

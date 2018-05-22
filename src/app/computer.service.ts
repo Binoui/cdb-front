@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Computer} from './computer/computer.model';
+import {Company} from './company/company.model';
+import {ComputerJSON} from './computer/computer-form-add/computer_json.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +25,8 @@ export class ComputerService {
     }
   }
 
+  addComputer(computer: ComputerJSON): Observable<Company> {
+    console.log(computer, 'addComputer entered');
+    return this.httpClient.post<Computer>(this.baseUrl + '/computer', computer);
+  }
 }
