@@ -10,6 +10,8 @@ import {ComputerComponent} from './computer/computer.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ComputerDetailComponent} from './computer/computer-detail/computer-detail.component';
 import {ComputersComponent} from './computer/computers/computers.component';
+import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import {ComputersComponent} from './computer/computers/computers.component';
     CompanyDetailComponent,
     ComputerComponent,
     ComputersComponent,
-    ComputerDetailComponent
+    ComputerDetailComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,6 +10,7 @@ export class ComputerComponent implements OnInit {
 
   @Input() computer: Computer;
 
+
   constructor() { }
 
   ngOnInit() {

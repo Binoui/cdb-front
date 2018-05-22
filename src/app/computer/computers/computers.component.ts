@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Computer} from '../computer.model';
 import {ComputerService} from '../../computer.service';
 
@@ -9,6 +9,13 @@ import {ComputerService} from '../../computer.service';
 })
 export class ComputersComponent implements OnInit {
   computers: Computer[];
+  @Input() _search: String;
+  @Input('_search')
+  set search(value: String) {
+    this._search = value;
+    console.log(this._search);
+  }
+  @Output() searchChange = new EventEmitter<number>();
 
   constructor(private computerService: ComputerService) { }
 
