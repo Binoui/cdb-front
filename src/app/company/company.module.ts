@@ -10,6 +10,6 @@ import {MatListModule} from '@angular/material';
     MatListModule,
     CommonModule
   ],
-  declarations: [CompanyDetailComponent]
+  declarations: []
 })
 export class CompanyModule { }

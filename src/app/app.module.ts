@@ -9,6 +9,8 @@ import {CompanyDetailComponent} from './company/company-detail/company-detail.co
 import {ComputerComponent} from './computer/computer.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CustomMaterialModule} from './custom-material/custom-material.module';
+import {ComputerDetailComponent} from './computer/computer-detail/computer-detail.component';
+import {ComputersComponent} from './computer/computers/computers.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {CustomMaterialModule} from './custom-material/custom-material.module';
     CompanyComponent,
     CompaniesComponent,
     CompanyDetailComponent,
-    ComputerComponent
+    ComputerComponent,
+    ComputersComponent,
+    ComputerDetailComponent
   ],
   imports: [
     BrowserAnimationsModule,
