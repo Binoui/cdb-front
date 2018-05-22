@@ -8,6 +8,7 @@ import { CompaniesComponent } from './company/companies/companies.component';
 import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 import { ComputerComponent } from './computer/computer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComputersComponent } from './computer/computers/computers.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CompanyComponent,
     CompaniesComponent,
     CompanyDetailComponent,
-    ComputerComponent
+    ComputerComponent,
+    ComputersComponent
   ],
   imports: [
     BrowserAnimationsModule,

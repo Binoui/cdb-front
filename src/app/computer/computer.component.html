@@ -1,5 +1,23 @@
-<mat-card >
-<h3>Computer {{ computer.id }} : {{computer.name}} </h3>
-<h3>Date d'introduction : {{computer.introduced}}</h3>
-<h3>Date d'abandon : {{computer.discontinued}}</h3>
-</mat-card >
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+        <i class="fas fa-chevron-circle-right"></i>
+        ID : {{ computer.id }}
+    </div>
+
+    <div class="card-body">
+
+        <h4 class="card-title">
+            <i class="fas fa-laptop"></i> Computer :
+            <p class="text-primary">{{ computer.name }}</p>
+        </h4>
+        <p class="card-text">Click below to have more information about this computer !</p>
+        <div *ngIf="isExpanded">
+            <p class="card-text">Introduced : {{computer.introduced}}</p>
+            <p class="card-text">Discontinued : {{computer.discontinued}}</p>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button (click)="showDetails()" type="button" class="btn btn-primary">{{buttonText}}</button>
+    </div>
+</div>
