@@ -7,6 +7,7 @@ import {CompanyComponent} from './company.component';
 import {Company} from './company.model';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CompanyFormAddComponent } from './company-form-add/company-form-add.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   declarations: [CompanyDetailComponent,
   CompaniesComponent,
-  CompanyComponent],
+  CompanyComponent,
+  CompanyFormAddComponent],
   exports : [Company, CompanyComponent]
 })
 export class CompanyModule { }
