@@ -15,8 +15,12 @@ export class ComputerService {
     return this.httpClient.get<Computer>(this.baseUrl + '/computer/' + id);
   }
 
-  getComputers(): Observable<Computer[]> {
-    return this.httpClient.get<Computer[]>(this.baseUrl + '/computers');
+  getComputers(search: string): Observable<Computer[]> {
+    if (!search) {
+      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers');
+    } else {
+      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=1&search=' + search);
+    }
   }
 
 }

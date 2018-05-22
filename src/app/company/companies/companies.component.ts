@@ -10,18 +10,22 @@ import { Company } from '../company.model';
 export class CompaniesComponent implements OnInit {
   companies: Company[];
 
-  @Input() _search: String;
+  @Input() _search: string;
   @Input('_search')
-  set search(value: String) {
+  set search(value: string) {
     this._search = value;
     console.log(this._search);
+    this.companyService.getCompanies(this._search).subscribe(
+      companies => this.companies = companies,
+      error => console.error('Error getting list of Companies', error)
+    );
   }
   @Output() searchChange = new EventEmitter<number>();
 
   constructor(private companyService: CompanyService) { }
 
   ngOnInit() {
-    this.companyService.getCompanies().subscribe(
+    this.companyService.getCompanies(this._search).subscribe(
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );

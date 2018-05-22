@@ -17,8 +17,12 @@ export class CompanyService {
     return this.httpClient.get<Company>(this.baseUrl + '/company/' + id);
   }
 
-  getCompanies(): Observable<Company[]> {
-    return this.httpClient.get<Company[]>(this.baseUrl + '/companies');
+  getCompanies(search: string): Observable<Company[]> {
+    if (!search) {
+      return this.httpClient.get<Company[]>(this.baseUrl + '/companies');
+    } else {
+      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=1&search=' + search);
+    }
   }
 
   getComputer(id: number): Observable<Computer[]> {

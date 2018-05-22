@@ -9,18 +9,22 @@ import {ComputerService} from '../../computer.service';
 })
 export class ComputersComponent implements OnInit {
   computers: Computer[];
-  @Input() _search: String;
+  @Input() _search: string;
   @Input('_search')
-  set search(value: String) {
+  set search(value: string) {
     this._search = value;
     console.log(this._search);
+    this.computerService.getComputers(this._search).subscribe(
+      computer => this.computers = computer,
+      error => console.error('Error getting list of Companies', error)
+    );
   }
   @Output() searchChange = new EventEmitter<number>();
 
   constructor(private computerService: ComputerService) { }
 
   ngOnInit() {
-    this.computerService.getComputers().subscribe(
+    this.computerService.getComputers(this._search).subscribe(
       computer => this.computers = computer,
       error => console.error('Error getting list of Companies', error)
     );
