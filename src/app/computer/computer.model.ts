@@ -5,5 +5,5 @@ export class Computer {
   name: string;
   introduced: string;
   discontinued: string;
-  company: Company;
+  companyDTO: Company;
 }
