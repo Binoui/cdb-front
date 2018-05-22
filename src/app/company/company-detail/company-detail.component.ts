@@ -21,11 +21,11 @@ export class CompanyDetailComponent implements OnInit {
     this.companyId = parseInt(this.route.snapshot.paramMap.get('id'), 10 );
     this.companyService.getCompany(this.companyId).subscribe(
       companies => this.company = companies,
-      error => console.error('Oups', error)
+      error => console.error('Error while getting list of companies', error)
     );
     this.companyService.getComputer(this.companyId).subscribe(
       computers => this.computers = computers,
-      error => console.error('Oups, une erreur est survenue lors de l\'accès à la liste des ordinateurs', error)
+      error => console.error('Error while getting list of Computers linked to the Company', error)
     );
   }
 

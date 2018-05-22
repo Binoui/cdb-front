@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { CompaniesComponent } from './company/companies/companies.component';
 import {CompanyDetailComponent} from './company/company-detail/company-detail.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -16,8 +17,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
     path: '**',
-    redirectTo: 'companies',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];

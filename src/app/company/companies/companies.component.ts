@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../../company.service';
 import { Company } from '../company.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-companies',
@@ -9,6 +10,7 @@ import { Company } from '../company.model';
 })
 export class CompaniesComponent implements OnInit {
   companies: Company[];
+  numberOfCompanies: number;
 
   constructor(private companyService: CompanyService) { }
 
@@ -17,6 +19,12 @@ export class CompaniesComponent implements OnInit {
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );
+    this.companyService.getCountCompanies().subscribe(
+      numberOfCompanies => this.numberOfCompanies,
+      error => console.error('Error getting count of Companies', error)
+    );
   }
+
+
 
 }
