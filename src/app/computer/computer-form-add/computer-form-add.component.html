@@ -1,0 +1,17 @@
+<form [formGroup]="computerForm">
+  Computer name :<br>
+  <input type="text" name="name" value="Name" formControlName="name">
+  <br>
+  Company :<br>
+  <input type="text" name="name" value="Name" formControlName="company">
+  <br>
+  Introduced date :<br>
+  <input type="text" name="name" value="Name" formControlName="introduced">
+  <br>
+  Discontinued date :<br>
+  <input type="text" name="name" value="Name" formControlName="discontinued">
+  <br>
+  <br>
+  <button (click)="addCompany()" > Add </button>
+</form>
+<p>Form value: {{ computerForm.status | json }}</p>
