@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Company } from './company/company.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Computer} from './computer/computer.model';
+import { Computer } from './computer/computer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,10 @@ export class CompanyService {
   }
 
   getComputer(id: number): Observable<Computer[]> {
-    return this.httpClient.get<Computer[]>( this.baseUrl + '/company/' + id + '/computers/' );
+    return this.httpClient.get<Computer[]>(this.baseUrl + '/company/' + id + '/computers/');
+  }
+
+  getCountCompanies(): Observable<number> {
+    return this.httpClient.get<number>(this.baseUrl + '/companies/count');
   }
 }

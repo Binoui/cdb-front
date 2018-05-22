@@ -5,6 +5,7 @@ import { CompaniesComponent } from './company/companies/companies.component';
 import {CompanyDetailComponent} from './company/company-detail/company-detail.component';
 import {ComputersComponent} from './computer/computers/computers.component';
 import {ComputerDetailComponent} from './computer/computer-detail/computer-detail.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -28,8 +29,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'home',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
     path: '**',
-    redirectTo: 'companies',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];
