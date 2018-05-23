@@ -30,15 +30,8 @@ export class CompanyService {
     return this.httpClient.get<Computer[]>(this.baseUrl + '/company/' + id + '/computers/');
   }
 
-  addCompany(company: string): Observable<Company> {
-    console.log(company, 'addCompany entered');
-
-    let credentials = { username: "user", password: "password" };
-    const header = new HttpHeaders({
-      authorization: 'Bearer ' + btoa(credentials.username + ':' + credentials.password)
-    });
-
-    return this.httpClient.post<Company>(this.baseUrl + '/companies', { headers: header, body: company });
+   addCompany(company: string): Observable<Company> {
+    return this.httpClient.post<Company>(this.baseUrl + '/companies', company);
   }
 
   getCountCompanies(): Observable<number> {
@@ -52,8 +45,13 @@ export class CompanyService {
         () => console.log("SUCESS FORBIDDEN"),
         (error) => console.log("error : ", error)
       );
+
+      return this.httpClient.put<Company>(this.baseUrl + '/company', company);
     }
 
-    return this.httpClient.put<Company>(this.baseUrl + '/company', company);
+  }
+
+  deleteCompany(id: number): Observable<number> {
+    return this.httpClient.delete<number>(this.baseUrl + '/company/' + id);
   }
 }

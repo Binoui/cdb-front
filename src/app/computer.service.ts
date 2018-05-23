@@ -31,4 +31,8 @@ export class ComputerService {
     return this.httpClient.put<Computer>(this.baseUrl + '/computer', computer);
   }
 
+  deleteComputer(id: number): Observable<number> {
+    return this.httpClient.delete<number>(this.baseUrl + '/computer/' + id);
+  }
+
 }

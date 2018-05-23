@@ -19,6 +19,7 @@ import {CompanyFormEditComponent} from './company/company-form-edit/company-form
 import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-form-edit.component';
 import {TokenInterceptor} from './token-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UserConnectionFormComponent } from './user-connection-form/user-connection-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ComputerFormAddComponent,
     CompanyFormEditComponent,
     ComputerFormEditComponent,
-    HomeComponent
+    HomeComponent,
+    UserConnectionFormComponent
   ],
   imports: [
     BrowserAnimationsModule,
