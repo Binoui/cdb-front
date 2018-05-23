@@ -17,6 +17,8 @@ import {CompanyFormAddComponent} from './company/company-form-add/company-form-a
 import {ComputerFormAddComponent} from './computer/computer-form-add/computer-form-add.component';
 import {CompanyFormEditComponent} from './company/company-form-edit/company-form-edit.component';
 import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-form-edit.component';
+import {TokenInterceptor} from './token-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,11 @@ import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

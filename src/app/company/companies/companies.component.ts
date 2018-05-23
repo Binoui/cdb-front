@@ -31,13 +31,10 @@ export class CompaniesComponent implements OnInit {
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );
-    // this.companyService.getCountCompanies().subscribe(
-    //   numberOfCompanies => this.numberOfCompanies,
-    //   error => console.error('Error getting count of Companies', error)
-    // );
-
-    this.numberOfCompanies = 2;
-    this.companyService.getCountCompanies();
+    this.companyService.getCountCompanies().subscribe(
+      numberOfCompanies => this.numberOfCompanies,
+      error => console.error('Error getting count of Companies', error)
+    );
   }
 
 

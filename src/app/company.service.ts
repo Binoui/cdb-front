@@ -27,7 +27,7 @@ export class CompanyService {
   }
 
   getComputer(id: number): Observable<Computer[]> {
-    return this.httpClient.get<Computer[]>(this.baseUrl + '/computer/' + id + '/computers/');
+    return this.httpClient.get<Computer[]>(this.baseUrl + '/company/' + id + '/computers/');
   }
 
   addCompany(company: string): Observable<Company> {
@@ -42,11 +42,18 @@ export class CompanyService {
   }
 
   getCountCompanies(): Observable<number> {
-    this.httpClient.get(this.baseUrl + "/forbidden/erzfz").subscribe(
-      () => console.log("SUCESS FORBIDDEN"),
-      (error) => console.log("error : ", error)
-    );
-
     return this.httpClient.get<number>(this.baseUrl + '/companies/count');
+  }
+
+  editCompany(company: Company): Observable<Company> {
+
+    if (this.appService.getToken() != null) {
+      this.httpClient.get(this.baseUrl + "/forbidden").subscribe(
+        () => console.log("SUCESS FORBIDDEN"),
+        (error) => console.log("error : ", error)
+      );
+    }
+
+    return this.httpClient.put<Company>(this.baseUrl + '/company', company);
   }
 }
