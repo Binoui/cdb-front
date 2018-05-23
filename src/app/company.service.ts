@@ -25,11 +25,11 @@ export class CompanyService {
     }
   }
 
-  getComputer(id: number): Observable<Computer[]> {
+  getComputersFromCompany(id: number): Observable<Computer[]> {
     return this.httpClient.get<Computer[]>( this.baseUrl + '/company/' + id + '/computers/' );
   }
 
-   addCompany(company: string): Observable<Company> {
+  addCompany(company: string): Observable<Company> {
     console.log(company, 'addCompany entered');
     return this.httpClient.post<Company>(this.baseUrl + '/companies', company);
   }

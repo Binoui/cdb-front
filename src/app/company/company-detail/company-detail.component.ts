@@ -23,7 +23,7 @@ export class CompanyDetailComponent implements OnInit {
       companies => this.company = companies,
       error => console.error('Error while getting list of companies', error)
     );
-    this.companyService.getComputer(this.companyId).subscribe(
+    this.companyService.getComputersFromCompany(this.companyId).subscribe(
       computers => this.computers = computers,
       error => console.error('Error while getting list of Computers linked to the Company', error)
     );

@@ -28,7 +28,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'companies/add',
+    path: 'company/add',
     component: CompanyFormAddComponent,
     pathMatch: 'full',
   },
@@ -38,7 +38,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'companies/:id',
+    path: 'company/:id',
     component: CompanyDetailComponent,
     pathMatch: 'full',
   },
