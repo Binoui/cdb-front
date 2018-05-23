@@ -14,6 +14,6 @@ export class AppService {
 
   authenticate(username, password) {
     this.httpClient.get(this.baseUrl + "/login?user=" + username + "&password=" + password);
+    console.log("mdr");
   }
-
 }
