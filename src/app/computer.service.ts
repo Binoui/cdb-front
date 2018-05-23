@@ -15,12 +15,12 @@ export class ComputerService {
     return this.httpClient.get<Computer>(this.baseUrl + '/computer/' + id);
   }
 
-  getComputers(search: string): Observable<Computer[]> {
-    if (!search) {
+  getComputers(search = '', order = 'ID', sort = true ): Observable<Computer[]> {
+    if ((!search) && (order === 'ID') && (sort = true)) {
       return this.httpClient.get<Computer[]>(this.baseUrl + '/computers');
-    } else {
-      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=0&search=' + search);
     }
+      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=0&search=' + search
+        + '&column=' + order + '&ascending=' + sort);
   }
 
   addComputer(computer: Computer): Observable<Computer> {

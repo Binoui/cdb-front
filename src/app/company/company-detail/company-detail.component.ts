@@ -30,7 +30,7 @@ export class CompanyDetailComponent implements OnInit {
   }
 
   deleteCompany() {
-    if(confirm('Are you sure to delete ' + this.company.name)) {
+    if (confirm('Are you sure to delete ' + this.company.name)) {
       this.companyService.deleteCompany(this.companyId).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
     }
 

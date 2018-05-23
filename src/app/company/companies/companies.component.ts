@@ -16,7 +16,6 @@ export class CompaniesComponent implements OnInit {
   @Input('_search')
   set search(value: string) {
     this._search = value;
-    console.log(this._search);
     this.companyService.getCompanies(this._search).subscribe(
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
