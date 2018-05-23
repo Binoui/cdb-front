@@ -37,4 +37,9 @@ export class CompanyService {
   getCountCompanies(): Observable<number> {
     return this.httpClient.get<number>(this.baseUrl + '/companies/count');
   }
+
+  editCompany(company: Company): Observable<Company> {
+    console.log(company, 'addCompany entered');
+    return this.httpClient.put<Company>(this.baseUrl + '/company', company);
+  }
 }

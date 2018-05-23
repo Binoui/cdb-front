@@ -8,6 +8,7 @@ import {Company} from './company.model';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CompanyFormAddComponent } from './company-form-add/company-form-add.component';
+import { CompanyFormEditComponent } from './company-form-edit/company-form-edit.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { CompanyFormAddComponent } from './company-form-add/company-form-add.com
   declarations: [CompanyDetailComponent,
   CompaniesComponent,
   CompanyComponent,
-  CompanyFormAddComponent],
+  CompanyFormAddComponent,
+  CompanyFormEditComponent],
   exports : [Company, CompanyComponent]
 })
 export class CompanyModule { }
