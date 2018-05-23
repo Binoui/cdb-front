@@ -19,7 +19,7 @@ export class ComputerService {
     if (!search) {
       return this.httpClient.get<Computer[]>(this.baseUrl + '/computers');
     } else {
-      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=1&search=' + search);
+      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=0&search=' + search);
     }
   }
 

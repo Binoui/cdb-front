@@ -18,6 +18,7 @@
     </div>
 
     <div class="modal-footer">
-        <button (click)="showDetails()" type="button" class="btn btn-primary">{{buttonText}}</button>
+        <button (click)="showDetails()" type="button" class="btn btn-outline-primary">{{buttonText}}</button>
+        <button title="Click here if you want to edit or delete this computer" routerLink="/computer/{{ computer.id }}" type="button" class="btn btn-primary">Learn More</button>
     </div>
 </div>

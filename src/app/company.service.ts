@@ -21,7 +21,7 @@ export class CompanyService {
     if (!search) {
       return this.httpClient.get<Company[]>(this.baseUrl + '/companies');
     } else {
-      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=1&search=' + search);
+      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=0&search=' + search);
     }
   }
 

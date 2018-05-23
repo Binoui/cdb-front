@@ -1,4 +1,4 @@
+<input class="form-control mr-sm-2" placeholder="Search" type="text" [(ngModel)]="search">
 <div class="card-columns margintop">
-    <input class="form-control mr-sm-2" placeholder="Search" type="text" [(ngModel)]="search">
     <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
 </div>
