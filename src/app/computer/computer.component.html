@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-
-<h3>Computer {{ computer.id }} : {{computer.name}} </h3>
-
-<h3>Introduced : {{computer.introduced}}</h3>
-<h3>Discontinued : {{computer.discontinued}}</h3>
-=======
 <div class="card border-primary mb-3" style="max-width: 20rem;">
     <div class="card-header">
         <i class="fas fa-chevron-circle-right"></i>
@@ -25,7 +18,7 @@
     </div>
 
     <div class="modal-footer">
-        <button (click)="showDetails()" type="button" class="btn btn-primary">{{buttonText}}</button>
+        <button (click)="showDetails()" type="button" class="btn btn-outline-primary">{{buttonText}}</button>
+        <button title="Click here if you want to edit or delete this computer" routerLink="/computer/{{ computer.id }}" type="button" class="btn btn-primary">Learn More</button>
     </div>
 </div>
->>>>>>> feature/computerBootstrap

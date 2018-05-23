@@ -2,8 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Computer} from './computer/computer.model';
-import {Company} from './company/company.model';
-import {ComputerJSON} from './computer/computer-form-add/computer_json.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +19,16 @@ export class ComputerService {
     if (!search) {
       return this.httpClient.get<Computer[]>(this.baseUrl + '/computers');
     } else {
-      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=1&search=' + search);
+      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=0&search=' + search);
     }
   }
 
-  addComputer(computer: ComputerJSON): Observable<Company> {
-    console.log(computer, 'addComputer entered');
+  addComputer(computer: Computer): Observable<Computer> {
     return this.httpClient.post<Computer>(this.baseUrl + '/computer', computer);
   }
+
+  editComputer(computer: Computer): Observable<Computer> {
+    return this.httpClient.put<Computer>(this.baseUrl + '/computer', computer);
+  }
+
 }

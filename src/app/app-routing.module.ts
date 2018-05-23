@@ -8,8 +8,20 @@ import {ComputerDetailComponent} from './computer/computer-detail/computer-detai
 import {CompanyFormAddComponent} from './company/company-form-add/company-form-add.component';
 import {ComputerFormAddComponent} from './computer/computer-form-add/computer-form-add.component';
 import { HomeComponent } from './home/home.component';
+import {CompanyFormEditComponent} from './company/company-form-edit/company-form-edit.component';
+import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-form-edit.component';
 
 const routes: Routes = [
+  {
+    path: 'computer/edit/:id',
+    component: ComputerFormEditComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'company/edit/:id',
+    component: CompanyFormEditComponent,
+    pathMatch: 'full',
+  },
   {
     path: 'computer/add',
     component: ComputerFormAddComponent,
@@ -26,7 +38,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'computer/:id',
+    path: 'companies/:id',
     component: CompanyDetailComponent,
     pathMatch: 'full',
   },

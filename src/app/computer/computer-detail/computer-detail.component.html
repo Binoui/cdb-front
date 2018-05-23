@@ -1,5 +1,17 @@
-
-  <h3>Computer {{ computer?.id }} : {{computer?.name}} </h3>
-  <h3>Company : {{computer?.companyDTO?.name}}</h3>
-  <h3>Introduced : {{computer?.introduced}}</h3>
-  <h3>Discontinued : {{computer?.discontinued}}</h3>
+<div class="jumbotron margintop">
+  <h3 class="display-3">
+    <i class="fas fa-laptop"></i> Computer :
+    <span class="text-primary">{{ computer?.name }}</span>
+  </h3>
+  <p class="lead">Here are the details of this computer:</p>
+  <hr class="my-4">
+  <h3>Company :
+    <a routerLink="/companies/{{ computer?.companyDTO?.id }}" class="card-link">{{ computer?.companyDTO?.name }}</a>
+  </h3>
+  <h3>Introduced : {{ computer?.introduced }}</h3>
+  <h3>Discontinued : {{ computer?.discontinued }}</h3>
+  <div class="modal-footer">
+    <button routerLink="#" type="button" class="btn btn-primary btn-lg">Edit</button>
+    <button routerLink="#" type="button" class="btn btn-primary btn-lg">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<form [formGroup]="companyForm">
+  Company name:<br>
+  <input type="text" name="name" value="Name" formControlName="name">
+  <br>
+  <br>
+  <button (click)="editCompany()" > Add </button>
+</form>
+<p>Form value: {{ companyForm.status | json }}</p>
