@@ -20,6 +20,7 @@ import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-
 import {TokenInterceptor} from './token-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserConnectionFormComponent } from './user-connection-form/user-connection-form.component';
+import { AdminGuard } from './admin-guard.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { UserConnectionFormComponent } from './user-connection-form/user-connect
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }],
+  }, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

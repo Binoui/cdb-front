@@ -30,7 +30,7 @@ export class CompanyService {
     return this.httpClient.get<Computer[]>(this.baseUrl + '/company/' + id + '/computers/');
   }
 
-   addCompany(company: string): Observable<Company> {
+  addCompany(company: string): Observable<Company> {
     return this.httpClient.post<Company>(this.baseUrl + '/companies', company);
   }
 
@@ -39,16 +39,9 @@ export class CompanyService {
   }
 
   editCompany(company: Company): Observable<Company> {
-
     if (this.appService.getToken() != null) {
-      this.httpClient.get(this.baseUrl + "/forbidden").subscribe(
-        () => console.log("SUCESS FORBIDDEN"),
-        (error) => console.log("error : ", error)
-      );
-
       return this.httpClient.put<Company>(this.baseUrl + '/company', company);
     }
-
   }
 
   deleteCompany(id: number): Observable<number> {

@@ -1,10 +1,7 @@
 <form [formGroup]="userForm">
-  Company name:<br>
-  <input type="text" name="name" value="Name" formControlName="name">
+  <input type="text" name="name" value="Name" formControlName="name"/>
   <br>
-  <input type="text" name="name" value="Name" formControlName="password">
+  <input type="password" name="password" value="password" formControlName="password"/>
   <br>
-  <br>
-  <button (click)="connectUser()" > Add </button>
+  <button (click)="login()" > Login </button>
 </form>
-<p>Form value: {{ userForm.status | json }}</p>
