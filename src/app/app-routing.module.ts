@@ -16,7 +16,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'company/add',
+    path: 'companies/add',
     component: CompanyFormAddComponent,
     pathMatch: 'full',
   },

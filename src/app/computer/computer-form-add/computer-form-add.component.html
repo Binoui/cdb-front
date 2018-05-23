@@ -3,7 +3,10 @@
   <input type="text" name="name" value="Name" formControlName="name">
   <br>
   Company :<br>
-  <input type="text" name="name" value="Name" formControlName="company">
+  <select type="text" name="name" value="Name" formControlName="companies">
+    <option value = "0" selected >--</option>
+    <option *ngFor="let company of companies" [value]="company.id">{{company.name}}</option>
+  </select>
   <br>
   Introduced date :<br>
   <input type="text" name="name" value="Name" formControlName="introduced">
