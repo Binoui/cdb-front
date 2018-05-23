@@ -38,7 +38,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'computer/:id',
+    path: 'company/:id',
     component: CompanyDetailComponent,
     pathMatch: 'full',
   },

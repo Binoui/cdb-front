@@ -9,6 +9,8 @@ import { ComputerFormAddComponent } from './computer-form-add/computer-form-add.
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { ComputerFormEditComponent } from './computer-form-edit/computer-form-edit.component';
+import {ComputerComponent} from './computer.component';
+import {ComputersComponent} from './computers/computers.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,7 @@ import { ComputerFormEditComponent } from './computer-form-edit/computer-form-ed
     RouterModule,
     FormsModule,
   ],
-  declarations: [ComputerDetailComponent, ComputerFormAddComponent, ComputerFormEditComponent,
+  declarations: [ComputerDetailComponent, ComputerFormAddComponent, ComputerFormEditComponent, ComputerComponent, ComputersComponent
   ]
 })
 export class ComputerModule { }

@@ -14,7 +14,7 @@ export class CompanyService {
   constructor(private httpClient: HttpClient) { }
 
   getCompany(id: number): Observable<Company> {
-    return this.httpClient.get<Company>(this.baseUrl + '/computer/' + id);
+    return this.httpClient.get<Company>(this.baseUrl + '/company/' + id);
   }
 
   getCompanies(search: string): Observable<Company[]> {
@@ -26,7 +26,7 @@ export class CompanyService {
   }
 
   getComputer(id: number): Observable<Computer[]> {
-    return this.httpClient.get<Computer[]>( this.baseUrl + '/computer/' + id + '/computers/' );
+    return this.httpClient.get<Computer[]>( this.baseUrl + '/company/' + id + '/computers/' );
   }
 
    addCompany(company: string): Observable<Company> {

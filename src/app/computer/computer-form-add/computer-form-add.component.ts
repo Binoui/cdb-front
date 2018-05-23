@@ -2,9 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ComputerService} from '../../computer.service';
-import {ComputerJSON} from './computer_json.model';
 import {Company} from '../../company/company.model';
 import {CompanyService} from '../../company.service';
+import {Computer} from '../computer.model';
 
 @Component({
   selector: 'app-computer-form-add',
@@ -12,7 +12,7 @@ import {CompanyService} from '../../company.service';
   styleUrls: ['./computer-form-add.component.scss']
 })
 export class ComputerFormAddComponent implements OnInit {
-  computer = new ComputerJSON();
+  computer = new Computer();
   computerForm = new FormGroup ({
     name: new FormControl()
   });
