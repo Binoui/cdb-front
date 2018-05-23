@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CompanyFormAddComponent} from './company/company-form-add/company-form-add.component';
 import {ComputerFormAddComponent} from './computer/computer-form-add/computer-form-add.component';
 import {CompanyFormEditComponent} from './company/company-form-edit/company-form-edit.component';
+import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-form-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {CompanyFormEditComponent} from './company/company-form-edit/company-form
     CompanyFormAddComponent,
     ComputerFormAddComponent,
     CompanyFormEditComponent,
+    ComputerFormEditComponent,
     HomeComponent
   ],
   imports: [

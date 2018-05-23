@@ -25,8 +25,12 @@ export class ComputerService {
     }
   }
 
-  addComputer(computer: ComputerJSON): Observable<Company> {
-    console.log(computer, 'addComputer entered');
+  addComputer(computer: ComputerJSON): Observable<Computer> {
     return this.httpClient.post<Computer>(this.baseUrl + '/computer', computer);
   }
+
+  editComputer(computer: Computer): Observable<Computer> {
+    return this.httpClient.put<Computer>(this.baseUrl + '/computer', computer);
+  }
+
 }
