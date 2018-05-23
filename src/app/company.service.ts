@@ -13,6 +13,10 @@ export class CompanyService {
 
   constructor(private httpClient: HttpClient) { }
 
+  authenticate(username, password) {
+    this.httpClient.get(this.baseUrl + "/login?user=" + username + "&password=" + password);
+  }
+
   getCompany(id: number): Observable<Company> {
     return this.httpClient.get<Company>(this.baseUrl + '/computer/' + id);
   }
