@@ -12,7 +12,7 @@ import {CompanyFormEditComponent} from './company/company-form-edit/company-form
 
 const routes: Routes = [
   {
-    path: 'companies/edit/:id',
+    path: 'company/edit/:id',
     component: CompanyFormEditComponent,
     pathMatch: 'full',
   },

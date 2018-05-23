@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CompanyService} from '../../company.service';
 import {Company} from '../company.model';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-company-form-edit',
@@ -15,9 +15,10 @@ export class CompanyFormEditComponent implements OnInit {
     name: new FormControl()
   });
 
-  constructor(private companyService: CompanyService, private router: Router, private fb: FormBuilder) { }
+  constructor(private route: ActivatedRoute, private companyService: CompanyService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.company.id = parseInt(this.route.snapshot.paramMap.get('id'), 10 );
     this.createForm();
   }
 
