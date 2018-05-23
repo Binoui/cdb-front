@@ -17,12 +17,12 @@ export class CompanyService {
     return this.httpClient.get<Company>(this.baseUrl + '/company/' + id);
   }
 
-  getCompanies(search: string): Observable<Company[]> {
-    if (!search) {
-      return this.httpClient.get<Company[]>(this.baseUrl + '/companies');
-    } else {
-      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=0&search=' + search);
+  getCompanies(search: string, order = 'ID', sort = true ): Observable<Company[]> {
+    if ((!search) && (order === 'ID') && (sort = true)) {
+      return this.httpClient.get<Computer[]>(this.baseUrl + '/companies/');
     }
+      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=0&search=' + search
+        + '&column=' + order + '&ascending=' + sort);
   }
 
   getComputersFromCompany(id: number): Observable<Computer[]> {
@@ -39,7 +39,10 @@ export class CompanyService {
   }
 
   editCompany(company: Company): Observable<Company> {
-    console.log(company, 'addCompany entered');
     return this.httpClient.put<Company>(this.baseUrl + '/company', company);
+  }
+
+  deleteCompany(id: number): Observable<number> {
+    return this.httpClient.delete<number>(this.baseUrl + '/company/' + id);
   }
 }

@@ -12,6 +12,6 @@
   <h3>Discontinued : {{ computer?.discontinued }}</h3>
   <div class="modal-footer">
     <button routerLink="#" type="button" class="btn btn-primary btn-lg">Edit</button>
-    <button routerLink="#" type="button" class="btn btn-primary btn-lg">Delete</button>
+    <button (click)="deleteComputer()" type="button" class="btn btn-primary btn-lg">Delete</button>
   </div>
 </div>

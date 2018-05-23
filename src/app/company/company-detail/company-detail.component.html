@@ -4,7 +4,7 @@
     <span class="text-primary">{{ company?.name }}</span>
   </h3>
   <button routerLink="#" type="button" class="btn btn-outline-primary btn-lg">Edit</button>
-  <button routerLink="#" type="button" class="btn btn-outline-primary btn-lg">Delete</button>
+  <button (click)="deleteCompany()" routerLink="#" type="button" class="btn btn-outline-primary btn-lg">Delete</button>
   <hr class="my-4">
   <p class="lead">Linked to this company are the following computers:</p>
   <hr class="my-4">

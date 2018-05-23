@@ -17,6 +17,7 @@ import {CompanyFormAddComponent} from './company/company-form-add/company-form-a
 import {ComputerFormAddComponent} from './computer/computer-form-add/computer-form-add.component';
 import {CompanyFormEditComponent} from './company/company-form-edit/company-form-edit.component';
 import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-form-edit.component';
+import { UserConnectionFormComponent } from './user-connection-form/user-connection-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-
     ComputerFormAddComponent,
     CompanyFormEditComponent,
     ComputerFormEditComponent,
-    HomeComponent
+    HomeComponent,
+    UserConnectionFormComponent
   ],
   imports: [
     BrowserAnimationsModule,
