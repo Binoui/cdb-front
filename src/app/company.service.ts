@@ -30,7 +30,6 @@ export class CompanyService {
   }
 
    addCompany(company: string): Observable<Company> {
-    console.log(company, 'addCompany entered');
     return this.httpClient.post<Company>(this.baseUrl + '/companies', company);
   }
 
@@ -39,7 +38,10 @@ export class CompanyService {
   }
 
   editCompany(company: Company): Observable<Company> {
-    console.log(company, 'addCompany entered');
     return this.httpClient.put<Company>(this.baseUrl + '/company', company);
+  }
+
+  deleteCompany(id: number): Observable<number> {
+    return this.httpClient.delete<number>(this.baseUrl + '/company/' + id);
   }
 }

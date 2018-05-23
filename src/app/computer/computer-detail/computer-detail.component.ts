@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Computer} from '../computer.model';
 import {ComputerService} from '../../computer.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Company} from '../../company/company.model';
 
 @Component({
@@ -15,7 +15,7 @@ export class ComputerDetailComponent implements OnInit {
   computer: Computer;
   company: Company;
 
-  constructor(private route: ActivatedRoute, private computerService: ComputerService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 
   ngOnInit() {
     this.computerId = parseInt(this.route.snapshot.paramMap.get('id'), 10 );
@@ -23,6 +23,13 @@ export class ComputerDetailComponent implements OnInit {
       computers => {this.computer = computers; console.log(computers); },
       error => console.error('Oups, une erreur est survenue lors de l\'accès à un ordinateur', error)
     );
+  }
+
+  deleteComputer() {
+    if(confirm('Are you sure to delete ' + this.computer.name)) {
+      this.computerService.deleteComputer(this.computerId).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
+    }
+
   }
 
 }
