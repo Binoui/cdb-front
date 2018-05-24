@@ -11,6 +11,8 @@ import { UserConnectionFormComponent } from './user-connection-form/user-connect
 import { CompanyModule } from './company/company.module';
 import { ComputerModule } from './computer/computer.module';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,4 +32,8 @@ import { ComputerModule } from './computer/computer.module';
   providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+
+
+}
