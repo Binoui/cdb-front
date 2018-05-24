@@ -35,10 +35,10 @@ export class UserConnectionFormComponent implements OnInit {
     if (this.userForm.valid) {
       this.appService.login(this.userForm.get('username').value, this.userForm.get('password').value).then(() => {
         if (this.appService.isLoggedIn()) {
-          let redirect = this.appService.redirectUrl ? this.appService.redirectUrl : '/home';
+          const redirect = this.appService.redirectUrl ? this.appService.redirectUrl : '/home';
           this.router.navigate([redirect]);
         } else {
-          this.message = "Incorrect username or password";
+          this.message = 'Incorrect username or password';
         }
       });
     }

@@ -35,7 +35,8 @@ import { ComputerModule } from './computer/computer.module';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    CompanyModule
+    CompanyModule,
+    ComputerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
