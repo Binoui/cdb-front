@@ -48,6 +48,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'companies/:page',
+    component: CompaniesComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'companies',
     component: CompaniesComponent,
     pathMatch: 'full'

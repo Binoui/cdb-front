@@ -25,6 +25,7 @@ export class ComputerDetailComponent implements OnInit {
     );
   }
 
+
   deleteComputer() {
     if(confirm('Are you sure to delete ' + this.computer.name)) {
       this.computerService.deleteComputer(this.computerId).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));

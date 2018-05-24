@@ -15,16 +15,32 @@ export class ComputerService {
     return this.httpClient.get<Computer>(this.baseUrl + '/computer/' + id);
   }
 
-  getComputers(search = '', order = 'ID', sort = true ): Observable<Computer[]> {
+  getComputers(search: string, page: number, order = 'ID', sort = true, size = 10): Observable<Computer[]> {
     if ((!search) && (order === 'ID') && (sort = true)) {
-      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers');
+      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=' + page + '&size=' + size);
     }
-      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=0&search=' + search
+      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=' + page + '&size=' + size + '&search=' + search
         + '&column=' + order + '&ascending=' + sort);
+  }
+
+  getAllComputers() {
+    return this.httpClient.get<Computer[]>(this.baseUrl + '/computers');
+  }
+
+  getCountComputer() {
+    return this.httpClient.get<number>(this.baseUrl + '/computers/count');
   }
 
   addComputer(computer: Computer): Observable<Computer> {
     return this.httpClient.post<Computer>(this.baseUrl + '/computer', computer);
+  }
+
+  getCountPageComputer(search = ''): Observable<number> {
+    if (!search) {
+      return this.httpClient.get<number>(this.baseUrl + '/computers/page/count');
+    } else {
+      return this.httpClient.get<number>(this.baseUrl + '/computers/page/count?search=' + search);
+    }
   }
 
   editComputer(computer: Computer): Observable<Computer> {

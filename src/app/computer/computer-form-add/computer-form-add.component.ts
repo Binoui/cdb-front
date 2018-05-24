@@ -23,7 +23,7 @@ export class ComputerFormAddComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.companyService.getCompanies('').subscribe(
+    this.companyService.getAllCompanies().subscribe(
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );
@@ -38,7 +38,7 @@ export class ComputerFormAddComponent implements OnInit {
     });
   }
 
-  addCompany() {
+  addComputer() {
     if (this.computerForm.valid) {
       this.computer.name = this.computerForm.get('name').value;
       this.computer.discontinued = this.computerForm.get('discontinued').value;

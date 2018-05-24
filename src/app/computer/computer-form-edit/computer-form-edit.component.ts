@@ -29,7 +29,7 @@ export class ComputerFormEditComponent implements OnInit {
       computerToEdit => this.computerToEdit = computerToEdit,
       error => console.error('Error getting info from the computer to edit', error)
     );
-    this.companyService.getCompanies('').subscribe(
+    this.companyService.getAllCompanies().subscribe(
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );
@@ -37,14 +37,14 @@ export class ComputerFormEditComponent implements OnInit {
 
   createForm() {
     this.computerForm = this.fb.group({
-      name: ['', Validators.required],
-      companies: ['', Validators.required],
+      name: [Validators.required],
+      companies: '',
       introduced: '',
       discontinued: '',
     });
   }
 
-  editCompany() {
+  editComputer() {
     if (this.computerForm.valid) {
       this.computer.name = this.computerForm.get('name').value;
       this.computer.discontinued = this.computerForm.get('discontinued').value;
