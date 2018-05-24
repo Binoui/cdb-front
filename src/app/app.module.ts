@@ -26,8 +26,7 @@ import { ComputerModule } from './computer/computer.module';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    CompanyModule,
-    ComputerModule
+    CompanyModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]
