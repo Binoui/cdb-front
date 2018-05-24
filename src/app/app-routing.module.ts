@@ -17,12 +17,14 @@ const routes: Routes = [
   {
     path: 'computer/edit/:id',
     component: ComputerFormEditComponent,
+    canActivate: [AdminGuard],
     pathMatch: 'full',
   },
   {
     path: 'company/edit/:id',
     component: CompanyFormEditComponent,
     pathMatch: 'full',
+    canActivate: [AdminGuard],
   },
   {
     path: 'computer/add',
@@ -34,6 +36,7 @@ const routes: Routes = [
     path: 'companies/add',
     component: CompanyFormAddComponent,
     pathMatch: 'full',
+    canActivate: [AdminGuard],
   },
   {
     path: 'computer/:id',

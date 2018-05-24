@@ -21,30 +21,26 @@ export class UserConnectionFormComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.setMessage();
   }
 
-  setMessage() {
-    this.message = "Logged " + this.appService.isLoggedIn() ? "in" : "out";
-  }
 
   createForm() {
     this.userForm = this.fb.group({
-      name: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
   login() {
     if (this.userForm.valid) {
-      this.message = "Logging in....";
-      this.appService.login(this.userForm.get('name').value, this.userForm.get('password').value);
-      if (this.appService.isLoggedIn()) {
-        let redirect = this.appService.redirectUrl ? this.appService.redirectUrl : '/home';
-        this.router.navigate([redirect]);
-      }
-    } else {
-      this.message = "Incorrect values";
+      this.appService.login(this.userForm.get('username').value, this.userForm.get('password').value).then(() => {
+        if (this.appService.isLoggedIn()) {
+          let redirect = this.appService.redirectUrl ? this.appService.redirectUrl : '/home';
+          this.router.navigate([redirect]);
+        } else {
+          this.message = "Incorrect username or password";
+        }
+      });
     }
   }
 }

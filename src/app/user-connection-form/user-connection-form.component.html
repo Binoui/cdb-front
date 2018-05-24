@@ -1,7 +1,11 @@
+<div class="errorMessage" ng-if="message">{{ message }}</div>
 <form [formGroup]="userForm">
-  <input type="text" name="name" value="Name" formControlName="name"/>
-  <br>
-  <input type="password" name="password" value="password" formControlName="password"/>
-  <br>
-  <button (click)="login()" > Login </button>
+  <fieldset>
+    <label for="username">Username : </label>
+    <input type="text" name="username" value="username" formControlName="username" />
+
+    <label for="password">Password : </label>
+    <input type="password" name="password" value="password" formControlName="password" />
+  </fieldset>
+  <button (click)="login()"> Login </button>
 </form>

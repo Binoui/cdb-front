@@ -22,7 +22,6 @@ export class AdminGuard implements CanActivate {
     }
 
     this.appService.redirectUrl = url;
-    console.log('rekt')
     this.router.navigate(['/login']);
     return false;
   }

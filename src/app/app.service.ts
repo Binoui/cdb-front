@@ -10,26 +10,23 @@ export class AppService {
   redirectUrl: string;
   private baseUrl = 'http://10.0.1.207:8080/cdb-webservice';
 
-  authenticationToken = null;
-
   constructor(private httpClient: HttpClient) { }
 
-  login(username: string, password: string): void {
+  async login(username: string, password: string): Promise<void> {
 
     let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
     let body = 'username=' + username + '&password=' + password;
-    this.httpClient.post(this.baseUrl + "/login", body, { headers: headers, responseType: 'text' })
-      .subscribe(
-        (token) => this.authenticationToken = token,
+    return await this.httpClient.post(this.baseUrl + "/login", body, { headers: headers, responseType: 'text' }).toPromise().then(
+        (token) => localStorage.setItem("token", token),
         (error) => console.log("error : ", error));
   }
 
   getToken(): string {
-    return this.authenticationToken;
+    return localStorage.getItem("token");
   }
 
   isLoggedIn(): boolean {
-    return this.authenticationToken != null;
+    return localStorage.getItem("token") != null;
   }
 }

@@ -39,9 +39,7 @@ export class CompanyService {
   }
 
   editCompany(company: Company): Observable<Company> {
-    if (this.appService.getToken() != null) {
-      return this.httpClient.put<Company>(this.baseUrl + '/company', company);
-    }
+    return this.httpClient.put<Company>(this.baseUrl + '/company', company);
   }
 
   deleteCompany(id: number): Observable<number> {
