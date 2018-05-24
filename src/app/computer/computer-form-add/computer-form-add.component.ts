@@ -23,7 +23,7 @@ export class ComputerFormAddComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.companyService.getCompanies('').subscribe(
+    this.companyService.getAllCompanies().subscribe(
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );

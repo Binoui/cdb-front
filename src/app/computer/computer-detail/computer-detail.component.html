@@ -11,7 +11,7 @@
   <h3 i18n>Introduced : {{ computer?.introduced }}</h3>
   <h3 i18n>Discontinued : {{ computer?.discontinued }}</h3>
   <div class="modal-footer">
-    <button i18n routerLink="#" type="button" class="btn btn-primary btn-lg">Edit</button>
+    <button i18n routerLink="/computer/edit/{{computer?.id}}" type="button" class="btn btn-primary btn-lg">Edit</button>
     <button i18n (click)="deleteComputer()" type="button" class="btn btn-primary btn-lg">Delete</button>
   </div>
 </div>

@@ -17,12 +17,16 @@ export class CompanyService {
     return this.httpClient.get<Company>(this.baseUrl + '/company/' + id);
   }
 
-  getCompanies(search: string, order = 'ID', sort = true ): Observable<Company[]> {
+  getCompanies(search: string, page: number, order = 'ID', sort = true, size = 10 ): Observable<Company[]> {
     if ((!search) && (order === 'ID') && (sort = true)) {
-      return this.httpClient.get<Computer[]>(this.baseUrl + '/companies/');
+      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=' + page + '&size=' + size);
     }
-      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=0&search=' + search
+      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=' + page + '&size=' + size + '&search=' + search
         + '&column=' + order + '&ascending=' + sort);
+  }
+
+  getAllCompanies() {
+    return this.httpClient.get<Company[]>(this.baseUrl + '/companies');
   }
 
   getComputersFromCompany(id: number): Observable<Computer[]> {
@@ -34,8 +38,21 @@ export class CompanyService {
     return this.httpClient.post<Company>(this.baseUrl + '/companies', company);
   }
 
-  getCountCompanies(): Observable<number> {
-    return this.httpClient.get<number>(this.baseUrl + '/companies/count');
+  getCountCompanies(search = ''): Observable<number> {
+    if (!search) {
+      return this.httpClient.get<number>(this.baseUrl + '/companies/count');
+    } else {
+      return this.httpClient.get<number>(this.baseUrl + '/companies/count?searchWord=' + search);
+    }
+  }
+
+
+  getCountPageCompanies(search = ''): Observable<number> {
+    if (!search) {
+      return this.httpClient.get<number>(this.baseUrl + '/companies/page/count');
+    } else {
+      return this.httpClient.get<number>(this.baseUrl + '/companies/page/count?search=' + search);
+    }
   }
 
   editCompany(company: Company): Observable<Company> {
