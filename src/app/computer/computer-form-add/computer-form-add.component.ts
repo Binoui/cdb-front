@@ -1,10 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ComputerService} from '../../computer.service';
-import {Company} from '../../company/company.model';
-import {CompanyService} from '../../company.service';
-import {Computer} from '../computer.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ComputerService } from '../computer.service';
+import { Company } from '../../company/company.model';
+import { CompanyService } from '../../company/company.service';
+import { Computer } from '../computer.model';
 
 @Component({
   selector: 'app-computer-form-add',
@@ -13,13 +13,13 @@ import {Computer} from '../computer.model';
 })
 export class ComputerFormAddComponent implements OnInit {
   computer = new Computer();
-  computerForm = new FormGroup ({
+  computerForm = new FormGroup({
     name: new FormControl()
   });
   @Input() companies: Company[];
 
   constructor(private computerService: ComputerService, private companyService: CompanyService,
-              private router: Router, private fb: FormBuilder) { }
+    private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.createForm();
@@ -38,7 +38,7 @@ export class ComputerFormAddComponent implements OnInit {
     });
   }
 
-  addCompany() {
+  addComputer() {
     if (this.computerForm.valid) {
       this.computer.name = this.computerForm.get('name').value;
       this.computer.discontinued = this.computerForm.get('discontinued').value;

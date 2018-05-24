@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { CompanyService } from '../../company.service';
+import { CompanyService } from '../company.service';
 import { Company } from '../company.model';
 import { Observable } from 'rxjs';
 

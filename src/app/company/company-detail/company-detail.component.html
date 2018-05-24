@@ -1,12 +1,12 @@
 <div class="jumbotron margintop">
-  <h3 class="display-3">
+  <h3 i18n class="display-3">
     <i class="fas fa-industry"></i> Company :
     <span class="text-primary">{{ company?.name }}</span>
   </h3>
-  <button routerLink="#" type="button" class="btn btn-outline-primary btn-lg">Edit</button>
-  <button (click)="deleteCompany()" routerLink="#" type="button" class="btn btn-outline-primary btn-lg">Delete</button>
+  <button i18n routerLink="#" type="button" class="btn btn-outline-primary btn-lg">Edit</button>
+  <button i18n (click)="deleteCompany()" routerLink="#" type="button" class="btn btn-outline-primary btn-lg">Delete</button>
   <hr class="my-4">
-  <p class="lead">Linked to this company are the following computers:</p>
+  <p i18n class="lead">Linked to this company are the following computers:</p>
   <hr class="my-4">
   <div class="card-columns">
     <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
