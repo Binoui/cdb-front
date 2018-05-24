@@ -10,27 +10,33 @@ import {ComputerFormAddComponent} from './computer/computer-form-add/computer-fo
 import { HomeComponent } from './home/home.component';
 import {CompanyFormEditComponent} from './company/company-form-edit/company-form-edit.component';
 import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-form-edit.component';
+import { UserConnectionFormComponent } from './user-connection-form/user-connection-form.component';
+import { AdminGuard } from './admin-guard.service'
 
 const routes: Routes = [
   {
     path: 'computer/edit/:id',
     component: ComputerFormEditComponent,
+    canActivate: [AdminGuard],
     pathMatch: 'full',
   },
   {
     path: 'company/edit/:id',
     component: CompanyFormEditComponent,
     pathMatch: 'full',
+    canActivate: [AdminGuard],
   },
   {
     path: 'computer/add',
     component: ComputerFormAddComponent,
     pathMatch: 'full',
+    canActivate: [AdminGuard],
   },
   {
     path: 'company/add',
     component: CompanyFormAddComponent,
     pathMatch: 'full',
+    canActivate: [AdminGuard],
   },
   {
     path: 'computer/:id',
@@ -55,6 +61,11 @@ const routes: Routes = [
   {
     path: 'companies',
     component: CompaniesComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: UserConnectionFormComponent,
     pathMatch: 'full'
   },
   {

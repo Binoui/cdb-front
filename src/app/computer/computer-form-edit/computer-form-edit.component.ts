@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {CompanyService} from '../../company.service';
+import {CompanyService} from '../../company/company.service';
 import {Company} from '../../company/company.model';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ComputerService} from '../../computer.service';
+import {ComputerService} from '../computer.service';
 import {Computer} from '../computer.model';
 
 @Component({

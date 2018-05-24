@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Computer} from '../computer.model';
-import {ComputerService} from '../../computer.service';
+import {ComputerService} from '../computer.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({

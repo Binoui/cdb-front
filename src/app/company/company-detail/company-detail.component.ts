@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Company} from '../company.model';
-import {ActivatedRoute, Router} from '@angular/router';
-import {CompanyService} from '../../company.service';
-import {Computer} from '../../computer/computer.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Company } from '../company.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CompanyService } from '../company.service';
+import { Computer } from '../../computer/computer.model';
 
 @Component({
   selector: 'app-company-detail',
@@ -18,7 +18,7 @@ export class CompanyDetailComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private companyService: CompanyService) { }
 
   ngOnInit() {
-    this.companyId = parseInt(this.route.snapshot.paramMap.get('id'), 10 );
+    this.companyId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.companyService.getCompany(this.companyId).subscribe(
       companies => this.company = companies,
       error => console.error('Error while getting list of companies', error)
