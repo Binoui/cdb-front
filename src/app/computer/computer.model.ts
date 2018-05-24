@@ -1,4 +1,4 @@
-import {Company} from '../company/company.model';
+import { Company } from '../company/company.model';
 
 export class Computer {
   id: number;

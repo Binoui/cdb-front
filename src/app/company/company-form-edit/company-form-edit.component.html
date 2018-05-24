@@ -1,8 +1,15 @@
-<form [formGroup]="companyForm">
-  Company name:<br>
-  <input type="text" name="name" value="Name" formControlName="name">
-  <br>
-  <br>
-  <button (click)="editCompany()" > Add </button>
-</form>
-<p>Form value: {{ companyForm.status | json }}</p>
+<div class="card border-primary mb-3 mx-auto" style="max-width: 30rem;">
+    <div class="card-body">
+      <form [formGroup]="companyForm">
+        <fieldset>
+          <legend i18n>Company edition form :</legend>
+          <div class="form-group">
+            <label i18n for="nameCompany">Company name:</label>
+            <input class="form-control" id="nameCompany" placeholder="Name" type="text" formControlName="name">
+          </div>
+          <button i18n class="btn btn-primary btn-block" (click)="editCompany()"> Create </button>
+        </fieldset>
+      </form>
+      <p i18n type="hidden">Form value: {{ companyForm.status | json }}</p>
+    </div>
+  </div>

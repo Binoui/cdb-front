@@ -33,7 +33,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   {
-    path: 'companies/add',
+    path: 'company/add',
     component: CompanyFormAddComponent,
     pathMatch: 'full',
     canActivate: [AdminGuard],
@@ -44,13 +44,18 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'companies/:id',
+    path: 'company/:id',
     component: CompanyDetailComponent,
     pathMatch: 'full',
   },
   {
     path: 'computers',
     component: ComputersComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'companies/:page',
+    component: CompaniesComponent,
     pathMatch: 'full'
   },
   {

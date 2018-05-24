@@ -2,3 +2,6 @@
 <div class="card-columns margintop">
     <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
 </div>
+<button *ngFor="let page of before"  (click)="updatePage(page)" >{{page}}</button>
+<button class="selected-button" >{{this.page}}</button>
+<button *ngFor="let page of after"  (click)="updatePage(page)" >{{page}}</button>

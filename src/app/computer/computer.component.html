@@ -6,19 +6,19 @@
 
     <div class="card-body">
 
-        <h4 class="card-title">
+        <h4 i18n class="card-title">
             <i class="fas fa-laptop"></i> Computer :
             <p class="text-primary">{{ computer.name }}</p>
         </h4>
-        <p class="card-text">Click below to have more information about this computer !</p>
+        <p i18n class="card-text">Click below to have more information about this computer !</p>
         <div *ngIf="isExpanded">
-            <p class="card-text">Introduced : {{computer.introduced}}</p>
-            <p class="card-text">Discontinued : {{computer.discontinued}}</p>
+            <p i18n class="card-text">Introduced : {{computer.introduced}}</p>
+            <p i18n class="card-text">Discontinued : {{computer.discontinued}}</p>
         </div>
     </div>
 
-    <div class="modal-footer">
+    <div class="card-footer">
         <button (click)="showDetails()" type="button" class="btn btn-outline-primary">{{buttonText}}</button>
-        <button title="Click here if you want to edit or delete this computer" routerLink="/computer/{{ computer.id }}" type="button" class="btn btn-primary">Learn More</button>
+        <button i18n title="Click here if you want to edit or delete this computer" routerLink="/computer/{{ computer.id }}" type="button" class="btn btn-primary">Learn More</button>
     </div>
 </div>

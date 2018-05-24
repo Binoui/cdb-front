@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" 
+  xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="15f46446559dfbe7bdf994c8a4e1f46792e75c4e" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Computer :            
+          <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ computer.name }}"/>
+          <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Ordinateur :            
+          <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ computer.name }}"/>
+          <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf8438b181c906c3c0e014c604511d7081fa271e" datatype="html">
+        <source>Click below to have more information about this computer !</source>
+        <target>Cliquez ci-dessous afin d'en apprendre plus sur cet Ordinateur !</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4320a228df5f92fd97fab5c0fb8f631dda5a0b42" datatype="html">
+        <source>Introduced : 
+          <x id="INTERPOLATION" equiv-text="{{computer.introduced}}"/>
+        </source>
+        <target>Mis en place : 
+          <x id="INTERPOLATION" equiv-text="{{computer.introduced}}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b7dfda7ff947c05d556cc15214ec19637ff3c3f7" datatype="html">
+        <source>Discontinued : 
+          <x id="INTERPOLATION" equiv-text="{{computer.discontinued}}"/>
+        </source>
+        <target>Déconduit : 
+          <x id="INTERPOLATION" equiv-text="{{computer.discontinued}}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1801bfa6ba6eb7a02fd61bafb37e35f5d0aebfdc" datatype="html">
+        <source>Learn More</source>
+        <target>En apprendre plus</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f3a598de5e80e77c9d51d26270cf786a448d6760" datatype="html">
+        <source>Computer Database Application</source>
+        <target>Application de Consultation d'Ordinateurs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6bd2501b58334049ecb19d62703ec329cbc2a54c" datatype="html">
+        <source>Home          
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(current)
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        </source>
+        <target>Accueil          
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>(current)
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d867131f5b7247e991cf50d17bbb19df9d0aed54" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> List Companies
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Lister Entreprises
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="67800e0c332bbe256af1b2a3c330dbe7fb6890c7" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Add a Company
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Ajouter une Entreprise
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c84b83617b422eef84f484aca8f32628d42f399b" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Edit a Company
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Editer une Entreprise
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3ac76d4e16203255362d2e0111f3f1e085734f57" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Delete a Company
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Supprimer une Entreprise
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="adcfda2b7a1872074801883b97e7d67fd7f6849a" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> List Computers
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Lister les Ordinateurs
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1a0e22f83d331a1bf662702cdc7c862e5e0f8eff" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Add a Computer
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Ajouter un Ordinateur
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8e4e70417919f56b8f791736dcbdd1c4be393466" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Edit a Computer
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Editer un Ordinateur
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4df324a8cabe0773f37c4a625df487c28c4ee544" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Delete a Computer
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Supprimer un Ordinateur
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="004b222ff9ef9dd4771b777950ca1d0e4cd4348a" datatype="html">
+        <source>About</source>
+        <target>A propos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f02b04d0f0413eaed0a5af744ad2fda468ddc195" datatype="html">
+        <source>Hello, and welcome !</source>
+        <target>Bonjour, et bienvenue !</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e7bd06d5b9011c3e3342db2251d94e95e9ba7cfa" datatype="html">
+        <source>This application allows you to manage the Computers you own and the Companies linked to them.</source>
+        <target>Cette application vous permet de gérer votre parc d'Ordinateurs et les Entreprises qui leurs sont liés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="954df234a80b4c5d22797ce9f4364afb3d4b5e57" datatype="html">
+        <source>You can choose below one of the several services we give access to:</source>
+        <target>Choisissez ci-dessous parmi les différents services que nous proposons:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0dddbaad394f967429ff6d764112063a194973b0" datatype="html">
+        <source>List Companies</source>
+        <target>Lister les Entreprises</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f7c52da4668b506f9413dc0e94ecf7cb49616f06" datatype="html">
+        <source>Add a Company</source>
+        <target>Ajouter une Entreprise</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0ed8ccc2faae9fa1dfbc394efc2fd983f3bc4b1a" datatype="html">
+        <source>Edit a Company</source>
+        <target>Editer une Entreprise</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="57d43b5a008b08b47bff7a41d8f1d0d50a904f51" datatype="html">
+        <source>Delete a Company</source>
+        <target>Supprimer une Entreprise</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f14e295b95c43b71d7cd2fd9652153b3202a19e8" datatype="html">
+        <source>List Computers</source>
+        <target>Lister les Ordinateurs</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a36112e79d4aeef4ab85ef007305697137521310" datatype="html">
+        <source>Add a Computer</source>
+        <target>Ajouter un Ordinateur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fec8df160cbfecece03d60ece06093aa5f63d2a3" datatype="html">
+        <source>Edit a Computer</source>
+        <target>Editer un Ordinateur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="44a227a4879c3a586b6e785024c7461b5e22bc4d" datatype="html">
+        <source>Delete a Computer</source>
+        <target>Supprimer un Ordinateur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="34b35f1f128ed34695fc94ba066eb85fb75d657b" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Company :          
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ company?.name }}"/>
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Entreprise :          
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ company?.name }}"/>
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-detail/company-detail.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="28f86ffd419b869711aa13f5e5ff54be6d70731c" datatype="html">
+        <source>Edit</source>
+        <target>Editer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-detail/company-detail.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-detail/computer-detail.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">
+        <source>Delete</source>
+        <target>Supprimer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-detail/company-detail.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-detail/computer-detail.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d2db2baa365c71a9bef24428a523809a0fc7a1a5" datatype="html">
+        <source>Linked to this company are the following computers:</source>
+        <target>Les Ordinateurs suivants sont liés à cette Entreprise:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-detail/company-detail.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1bda44964ec0fda85741d8b281dec7483beacdf2" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Computer :          
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ computer?.name }}"/>
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Ordinateur :          
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ computer?.name }}"/>
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-detail/computer-detail.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0ec0cf16658c028a8c3ad12d079a162c8914c564" datatype="html">
+        <source>Company :          
+          <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ computer?.companyDTO?.name }}"/>
+          <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+        </source>
+        <target>Entreprise :          
+          <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ computer?.companyDTO?.name }}"/>
+          <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-detail/computer-detail.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a6455dfedd572c6aa873732bd89aa33bf6e2d79e" datatype="html">
+        <source>Introduced : 
+          <x id="INTERPOLATION" equiv-text="{{ computer?.introduced }}"/>
+        </source>
+        <target>Mis en place : 
+          <x id="INTERPOLATION" equiv-text="{{ computer?.introduced }}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-detail/computer-detail.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0c2efd9877ebf23c2374120c78113a0f01ed2c77" datatype="html">
+        <source>Discontinued : 
+          <x id="INTERPOLATION" equiv-text="{{ computer?.discontinued }}"/>
+        </source>
+        <target>Déconduit : 
+          <x id="INTERPOLATION" equiv-text="{{ computer?.discontinued }}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-detail/computer-detail.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="636ae68151cc2afe6400c9e91343e5f7751fae1c" datatype="html">
+        <source>Company creation form :</source>
+        <target>Formulaire de création d'Entreprise :</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-form-add/company-form-add.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bebf799cd73aaa4ccc04453a3deb196cee044262" datatype="html">
+        <source>Company name:</source>
+        <target>Nom de l'Entreprise</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-form-add/company-form-add.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-form-edit/company-form-edit.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a419520728a34bcdfd8854b213e69173ad8a66ca" datatype="html">
+        <source> Create </source>
+        <target> Créer </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-form-add/company-form-add.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-add/computer-form-add.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-form-edit/company-form-edit.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aefef8b6bd1467b3576896d892cb181df56e9164" datatype="html">
+        <source>Form value: 
+          <x id="INTERPOLATION" equiv-text="{{ companyForm.status | json }}"/>
+        </source>
+        <target>Validité du formulaire: 
+          <x id="INTERPOLATION" equiv-text="{{ companyForm.status | json }}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-form-add/company-form-add.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-form-edit/company-form-edit.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fed72ad6d29549f4ae3cd3a8b4dc2a8d8f8825ec" datatype="html">
+        <source>Computer creation form :</source>
+        <target>Formulaire de création d'Ordinateur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-add/computer-form-add.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9bd98e95f2ec156ac6c0cc565371e24831ce3007" datatype="html">
+        <source>Computer name:</source>
+        <target>Nom de l'Ordinateur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-add/computer-form-add.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-edit/computer-form-edit.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8b3250b629b4d23472d4832ab59050dd787a5bb1" datatype="html">
+        <source>Introduced in:</source>
+        <target>Mis en place:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-add/computer-form-add.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-edit/computer-form-edit.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dc6b4a2bebfc58b9ad85a2e62e1bfd498935b6bb" datatype="html">
+        <source>Discontinued in:</source>
+        <target>Déconduit</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-add/computer-form-add.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-edit/computer-form-edit.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6ef0619a37140118b9e640c6cc36ee4e9fb4372a" datatype="html">
+        <source>Company</source>
+        <target>Entreprise</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-add/computer-form-add.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1109b731ade0113a4d3336962e15438f6ffdd38a" datatype="html">
+        <source>Form value: 
+          <x id="INTERPOLATION" equiv-text="{{ computerForm.status | json }}"/>
+        </source>
+        <target>Validité du formulaire: 
+          <x id="INTERPOLATION" equiv-text="{{ computerForm.status | json }}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-add/computer-form-add.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-edit/computer-form-edit.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="58b9c926f3144eef6f00eca4e5d5a74f930dcef4" datatype="html">
+        <source>Company edition form :</source>
+        <target>Formulaire d'édition d'Entreprise</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company-form-edit/company-form-edit.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2ce5a81da5c038b6004af4c1320000e8cef4dfd7" datatype="html">
+        <source>Computer edition form :</source>
+        <target>Formulaire d'édition d'Ordinateur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-edit/computer-form-edit.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9e5fa5908a381f35a0c035b9d38074cf8614c5f1" datatype="html">
+        <source>Company:</source>
+        <target>Entreprise:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-edit/computer-form-edit.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ee6f41840bf84e3ec720b7b22390f08c1cbdcb81" datatype="html">
+        <source> Edit </source>
+        <target> Éditer </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-form-edit/computer-form-edit.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e4ccd8f6996f8a23adf48319e93228fef7560e51" datatype="html">
+        <source>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Company :      
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ company.name }}"/>
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        </source>
+        <target>
+          <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>
+          <x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> Entreprise :      
+          <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ company.name }}"/>
+          <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d82df991976e410bf60e784b94b6094e5ac2375d" datatype="html">
+        <source>Click below to have more information about this company !</source>
+        <target>Cliquez ci-dessous afin d'en apprendre plus sur cette Entreprise !</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/company/company.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
