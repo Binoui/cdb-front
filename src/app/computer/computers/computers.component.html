@@ -1,4 +1,7 @@
 <input class="form-control mr-sm-2" placeholder="Search" type="text" [(ngModel)]="search">
+<h3> Ordonner par :</h3><button (click)="setOrder('ID')" >ID</button><button (click)="setOrder('NAME')" >Nom</button>
+<br>
+<h3> Ordre :</h3><button (click)="setAsc(true)">Croissant</button><button (click)="setAsc(false)">Décroissant</button>
 <div class="card-columns margintop">
     <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
 </div>

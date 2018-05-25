@@ -18,11 +18,12 @@ export class CompanyService {
   }
 
   getCompanies(search: string, page: number, order = 'ID', sort = true, size = 10 ): Observable<Company[]> {
-    if ((!search) && (order === 'ID') && (sort = true)) {
-      return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=' + page + '&size=' + size);
+    if ((!search)) {
+      search = '' ;
     }
       return this.httpClient.get<Company[]>(this.baseUrl + '/companies/page?page=' + page + '&size=' + size + '&search=' + search
         + '&column=' + order + '&ascending=' + sort);
+
   }
 
   getAllCompanies() {

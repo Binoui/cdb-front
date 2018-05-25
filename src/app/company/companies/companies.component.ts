@@ -18,13 +18,15 @@ export class CompaniesComponent implements OnInit {
   page: number;
   previous: number;
   next: number;
+  order: string;
+  asc: boolean;
   size = 10;
 
   @Input() _search: string;
   @Input('_search')
   set search(value: string) {
     this._search = value;
-    this.companyService.getCompanies(this._search, this.page - 1).subscribe(
+    this.companyService.getCompanies(this._search, this.page - 1, this.order).subscribe(
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );
@@ -38,12 +40,35 @@ export class CompaniesComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private companyService: CompanyService) { }
 
+  setOrder(value: string) {
+    this.order = value;
+    this.companyService.getCompanies(this._search, this.page - 1, this.order).subscribe(
+      companies => {this.companies = companies; console.log(companies); },
+      error => console.error('Error getting list of Companies', error)
+    );
+    this.companyService.getCountPageCompanies(this._search).subscribe(
+      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(); },
+      error => console.error('Error getting count of Companies', error)
+    );
+    this.calculatePages();
+  }
+
+  setAsc(value: boolean) {
+    this.asc = value;
+    this.companyService.getCompanies(this._search, this.page - 1, this.order, this.asc).subscribe(
+      companies => {this.companies = companies; },
+      error => console.error('Error getting list of Companies', error)
+    );
+    this.companyService.getCountPageCompanies(this._search).subscribe(
+      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(); },
+      error => console.error('Error getting count of Companies', error)
+    );
+    this.calculatePages();
+  }
 
   calculatePages(size = 10) {
     let PageMax;
     PageMax  = this.numberOfPage;
-    console.log(this.numberOfPage);
-    console.log(PageMax);
     if (this.page > 1) {
       if (!(this.page < PageMax)) {
         this.page = PageMax;
@@ -82,7 +107,7 @@ export class CompaniesComponent implements OnInit {
   updatePage(page: number, size = 10 ) {
     this.page = page;
     this.calculatePages(size);
-    this.companyService.getCompanies(this._search, this.page - 1).subscribe(
+    this.companyService.getCompanies(this._search, this.page - 1, this.order).subscribe(
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );
@@ -93,7 +118,7 @@ export class CompaniesComponent implements OnInit {
     if (!this.page) {
       this.page = 1;
     }
-    this.companyService.getCompanies(this._search, this.page - 1).subscribe(
+    this.companyService.getCompanies(this._search, this.page - 1, this.order).subscribe(
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );
