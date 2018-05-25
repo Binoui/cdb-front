@@ -1,28 +1,30 @@
-import { Injectable }       from '@angular/core';
+import {Injectable} from '@angular/core';
+import {AppService} from './app.service';
 import {
   CanActivate, Router,
   ActivatedRouteSnapshot,
   RouterStateSnapshot
-}                           from '@angular/router';
-import { AppService }      from './app.service';
+} from '@angular/router';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
-  constructor(private appService: AppService, private router: Router) {}
+  constructor(private appService: AppService, private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let url: string = state.url;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+    const url: string = state.url;
 
-    return this.checkLogin(url);
+    return this.checkAdmin(url);
   }
 
-  checkLogin(url: string): boolean {
-    if (this.appService.isLoggedIn()) { 
-        return true; 
-    }
-
-    this.appService.redirectUrl = url;
-    this.router.navigate(['/login']);
-    return false;
+  checkAdmin(url: string): Promise<boolean> {
+    return this.appService.isAdmin().then((loggedIn) => {
+      if (loggedIn) {
+        return true;
+      } else {
+        this.appService.redirectUrl = url;
+        this.router.navigate(['/login']);
+        return false;
+      }
+    }).catch(() => false);
   }
 }

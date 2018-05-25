@@ -20,6 +20,11 @@ export class AppService {
     return await this.httpClient.post(this.baseUrl + '/login', body, { headers: headers, responseType: 'text' }).toPromise().then(
       (token) => localStorage.setItem('token', token),
       (error) => console.log('error : ', error));
+
+  }
+
+  logout(): Observable<Object> {
+    return this.httpClient.get(this.baseUrl + '/logout?token=' + this.getToken());
   }
 
   getToken(): string {
@@ -30,7 +35,18 @@ export class AppService {
     return localStorage.getItem('token') != null;
   }
 
-  logout(): Observable<Object> {
-    return this.httpClient.get(this.baseUrl + '/logout?token=' + this.getToken());
+  async isAdmin(): Promise<boolean> {
+    if (!this.isLoggedIn()) { return false; }
+
+    return await this.httpClient.get(this.baseUrl + '/current?token=' + this.getToken()).toPromise().then(
+      (user) => {
+        if (user['roles'].some(item => item.label === 'ROLE_ADMIN')) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      (error) => { console.log('error : ' + error); return false; }
+    );
   }
 }

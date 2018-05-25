@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CompaniesComponent } from './company/companies/companies.component';
 import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 import { ComputersComponent } from './computer/computers/computers.component';
@@ -12,6 +12,8 @@ import { CompanyFormEditComponent } from './company/company-form-edit/company-fo
 import { ComputerFormEditComponent } from './computer/computer-form-edit/computer-form-edit.component';
 import { UserConnectionFormComponent } from './user-connection-form/user-connection-form.component';
 import { AdminGuard } from './admin-guard.service';
+import { UserGuard } from './user-guard.service';
+import { UserAddFormComponent } from './user-add-form/user-add-form.component';
 
 const routes: Routes = [
   {
@@ -42,25 +44,35 @@ const routes: Routes = [
     path: 'computer/:id',
     component: ComputerDetailComponent,
     pathMatch: 'full',
+    canActivate: [UserGuard],
   },
   {
     path: 'company/:id',
     component: CompanyDetailComponent,
     pathMatch: 'full',
+    canActivate: [UserGuard],
   },
   {
     path: 'computers',
     component: ComputersComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [UserGuard],
   },
   {
     path: 'companies/:page',
     component: CompaniesComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [UserGuard],
   },
   {
     path: 'companies',
     component: CompaniesComponent,
+    pathMatch: 'full',
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'signin',
+    component: UserAddFormComponent,
     pathMatch: 'full'
   },
   {

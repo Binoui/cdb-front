@@ -23,10 +23,9 @@ export class ComputerFormEditComponent implements OnInit {
               private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.createForm();
     this.computer.id = parseInt(this.route.snapshot.paramMap.get('id'), 10 );
     this.computerService.getComputer(this.computer.id).subscribe(
-      computerToEdit => this.computerToEdit = computerToEdit,
+      computerToEdit => { this.computerToEdit = computerToEdit; this.createForm(computerToEdit.name); },
       error => console.error('Error getting info from the computer to edit', error)
     );
     this.companyService.getAllCompanies().subscribe(
@@ -35,9 +34,9 @@ export class ComputerFormEditComponent implements OnInit {
     );
   }
 
-  createForm() {
+  createForm(name: string) {
     this.computerForm = this.fb.group({
-      name: [Validators.required],
+      name: [name, Validators.required],
       companies: '',
       introduced: '',
       discontinued: '',
@@ -49,11 +48,16 @@ export class ComputerFormEditComponent implements OnInit {
       this.computer.name = this.computerForm.get('name').value;
       this.computer.discontinued = this.computerForm.get('discontinued').value;
       this.computer.introduced = this.computerForm.get('introduced').value;
-      if (this.computerForm.get('companies').value === 0) {
-        this.computer.companyDTO = null;
-      } else {
+      if (!this.computerForm.get('companies').value) {
         this.computer.companyDTO = new Company();
-        this.computer.companyDTO.id = this.computerForm.get('companies').value;
+        this.computer.companyDTO.id = this.computerToEdit.companyDTO.id;
+      } else {
+        if (this.computerForm.get('companies').value === 0) {
+          this.computer.companyDTO = null;
+        } else {
+          this.computer.companyDTO = new Company();
+          this.computer.companyDTO.id = this.computerForm.get('companies').value;
+        }
       }
       this.computerService.editComputer(this.computer).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
     }
