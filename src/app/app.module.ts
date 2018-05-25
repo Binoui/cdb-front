@@ -17,6 +17,7 @@ import { TokenInterceptor } from './token-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserConnectionFormComponent } from './user-connection-form/user-connection-form.component';
 import { AdminGuard } from './admin-guard.service';
+import { UserGuard } from './user-guard.service';
 import { CompanyModule } from './company/company.module';
 import { ComputerModule } from './computer/computer.module';
 import { UserAddFormComponent } from './user-add-form/user-add-form.component';
@@ -43,7 +44,7 @@ import { UserAddFormComponent } from './user-add-form/user-add-form.component';
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }, AdminGuard,
+  }, AdminGuard, UserGuard,
   { provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]
 })
