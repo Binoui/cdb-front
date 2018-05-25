@@ -48,11 +48,16 @@ export class ComputerFormEditComponent implements OnInit {
       this.computer.name = this.computerForm.get('name').value;
       this.computer.discontinued = this.computerForm.get('discontinued').value;
       this.computer.introduced = this.computerForm.get('introduced').value;
-      if (this.computerForm.get('companies').value === 0) {
-        this.computer.companyDTO = null;
-      } else {
+      if (!this.computerForm.get('companies').value) {
         this.computer.companyDTO = new Company();
-        this.computer.companyDTO.id = this.computerForm.get('companies').value;
+        this.computer.companyDTO.id = this.computerToEdit.companyDTO.id;
+      } else {
+        if (this.computerForm.get('companies').value === 0) {
+          this.computer.companyDTO = null;
+        } else {
+          this.computer.companyDTO = new Company();
+          this.computer.companyDTO.id = this.computerForm.get('companies').value;
+        }
       }
       this.computerService.editComputer(this.computer).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
     }
