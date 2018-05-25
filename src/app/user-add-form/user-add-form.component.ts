@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { CompanyService } from '../company.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AppService } from 'src/app/app.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AppService} from '../app.service';
 
 @Component({
-  selector: 'app-user-connection-form',
-  templateUrl: './user-connection-form.component.html',
-  styleUrls: ['./user-connection-form.component.scss']
+  selector: 'app-user-add-form',
+  templateUrl: './user-add-form.component.html',
+  styleUrls: ['./user-add-form.component.scss']
 })
-export class UserConnectionFormComponent implements OnInit {
+export class UserAddFormComponent implements OnInit {
   userForm = new FormGroup({
     name: new FormControl(),
     password: new FormControl(),

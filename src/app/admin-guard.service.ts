@@ -1,10 +1,6 @@
-import { Injectable }       from '@angular/core';
-import {
-  CanActivate, Router,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot
-}                           from '@angular/router';
-import { AppService }      from './app.service';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {AppService} from './app.service';
 
 @Injectable()
 export class AdminGuard implements CanActivate {
@@ -17,8 +13,8 @@ export class AdminGuard implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    if (this.appService.isLoggedIn()) { 
-        return true; 
+    if (this.appService.isLoggedIn()) {
+        return true;
     }
 
     this.appService.redirectUrl = url;

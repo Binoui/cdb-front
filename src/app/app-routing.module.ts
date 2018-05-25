@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
-import { CompaniesComponent } from './company/companies/companies.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {CompaniesComponent} from './company/companies/companies.component';
 import {CompanyDetailComponent} from './company/company-detail/company-detail.component';
 import {ComputersComponent} from './computer/computers/computers.component';
 import {ComputerDetailComponent} from './computer/computer-detail/computer-detail.component';
 import {CompanyFormAddComponent} from './company/company-form-add/company-form-add.component';
 import {ComputerFormAddComponent} from './computer/computer-form-add/computer-form-add.component';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {CompanyFormEditComponent} from './company/company-form-edit/company-form-edit.component';
 import {ComputerFormEditComponent} from './computer/computer-form-edit/computer-form-edit.component';
-import { UserConnectionFormComponent } from './user-connection-form/user-connection-form.component';
-import { AdminGuard } from './admin-guard.service'
+import {UserConnectionFormComponent} from './user-connection-form/user-connection-form.component';
+import {AdminGuard} from './admin-guard.service';
+import {UserAddFormComponent} from './user-add-form/user-add-form.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,11 @@ const routes: Routes = [
   {
     path: 'companies',
     component: CompaniesComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'signin',
+    component: UserAddFormComponent,
     pathMatch: 'full'
   },
   {

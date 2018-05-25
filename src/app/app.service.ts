@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +14,23 @@ export class AppService {
 
   async login(username: string, password: string): Promise<void> {
 
-    let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
 
-    let body = 'username=' + username + '&password=' + password;
-    return await this.httpClient.post(this.baseUrl + "/login", body, { headers: headers, responseType: 'text' }).toPromise().then(
-        (token) => localStorage.setItem("token", token),
-        (error) => console.log("error : ", error));
+    const body = 'username=' + username + '&password=' + password;
+    return await this.httpClient.post(this.baseUrl + '/login', body, { headers: headers, responseType: 'text' }).toPromise().then(
+        (token) => localStorage.setItem('token', token),
+        (error) => console.log('error : ', error));
+  }
+
+  logout(): Observable<Object> {
+    return this.httpClient.get(this.baseUrl + '/logout?token=' + localStorage.getItem( 'token') );
   }
 
   getToken(): string {
-    return localStorage.getItem("token");
+    return localStorage.getItem('token');
   }
 
   isLoggedIn(): boolean {
-    return localStorage.getItem("token") != null;
+    return localStorage.getItem('token') != null;
   }
 }

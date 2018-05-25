@@ -19,6 +19,7 @@ import { UserConnectionFormComponent } from './user-connection-form/user-connect
 import { AdminGuard } from './admin-guard.service';
 import { CompanyModule } from './company/company.module';
 import { ComputerModule } from './computer/computer.module';
+import { UserAddFormComponent } from './user-add-form/user-add-form.component';
 
 
 
@@ -26,7 +27,8 @@ import { ComputerModule } from './computer/computer.module';
   declarations: [
     AppComponent,
     HomeComponent,
-    UserConnectionFormComponent
+    UserConnectionFormComponent,
+    UserAddFormComponent
   ],
   imports: [
     BrowserAnimationsModule,
