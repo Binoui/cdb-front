@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { CompanyService } from '../company.service';
+import { CompanyService } from '../company/company.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
 
@@ -17,10 +17,11 @@ export class UserConnectionFormComponent implements OnInit {
 
   message: string;
 
-  constructor(private router: Router, private fb: FormBuilder, private appService: AppService) { }
+  constructor(private router: Router, private fb: FormBuilder, private appService: AppService) {
+    this.createForm();
+   }
 
   ngOnInit() {
-    this.createForm();
   }
 
 

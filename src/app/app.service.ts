@@ -18,9 +18,8 @@ export class AppService {
 
     const body = 'username=' + username + '&password=' + password;
     return await this.httpClient.post(this.baseUrl + '/login', body, { headers: headers, responseType: 'text' }).toPromise().then(
-      (token) => localStorage.setItem('token', token),
+      (token) => { console.log('token : ' + token); localStorage.setItem('token', token); },
       (error) => console.log('error : ', error));
-
   }
 
   logout(): Observable<Object> {
@@ -38,15 +37,15 @@ export class AppService {
   async isAdmin(): Promise<boolean> {
     if (!this.isLoggedIn()) return false;
 
-    return await this.httpClient.get(this.baseUrl + "/current?token=" + this.getToken()).toPromise().then(
+    return await this.httpClient.get(this.baseUrl + '/current?token=' + this.getToken()).toPromise().then(
       (user) => {
-        if (user["roles"].some(item => item.label === "ROLE_ADMIN")) {
+        if (user['roles'].some(item => item.label === 'ROLE_ADMIN')) {
           return true;
         } else {
           return false;
         }
       },
-      (error) => { console.log("error : " + error); return false; }
+      (error) => { console.log('error : ' + error); return false; }
     );
   }
 }
