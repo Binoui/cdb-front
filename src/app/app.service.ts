@@ -23,7 +23,7 @@ export class AppService {
   }
 
   logout(): Observable<Object> {
-    return this.httpClient.get(this.baseUrl + '/logout?token=' + localStorage.getItem('token'));
+    return this.httpClient.get(this.baseUrl + '/logout?token=' + this.getToken());
   }
 
   getToken(): string {
@@ -35,7 +35,7 @@ export class AppService {
   }
 
   async isAdmin(): Promise<boolean> {
-    if (!this.isLoggedIn()) return false;
+    if (!this.isLoggedIn()) { return false; }
 
     return await this.httpClient.get(this.baseUrl + '/current?token=' + this.getToken()).toPromise().then(
       (user) => {

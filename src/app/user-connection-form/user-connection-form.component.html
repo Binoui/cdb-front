@@ -1,11 +1,21 @@
 <div class="errorMessage" ng-if="message">{{ message }}</div>
-<form [formGroup]="userForm">
-  <fieldset>
-    <label formControlName="username">Username : </label>
-    <input type="text" name="username" value="username" formControlName="username" />
 
-    <label formControlName="password">Password : </label>
-    <input type="password" name="password" value="password" formControlName="password" />
-  </fieldset>
-  <button (click)="login()"> Login </button>
-</form>
+<div class="card border-primary mb-3 mx-auto" style="max-width: 30rem;">
+  <div class="card-body">
+    <form [formGroup]="userForm">
+      <fieldset>
+        <legend i18n>Login :</legend>
+        <div class="form-group">
+          <label i18n for="username">Username:</label>
+          <input class="form-control" id="Username" placeholder="Username" type="text" formControlName="username">
+        </div>
+        <div class="form-group">
+          <label i18n for="password">Password:</label>
+          <input class="form-control" id="Password" placeholder="Password" type="password" formControlName="password">
+        </div>
+        <button i18n class="btn btn-primary btn-block" (click)="login()"> Login </button>
+      </fieldset>
+    </form>
+    <p i18n type="hidden">Form value: {{ userForm.status | json }}</p>
+  </div>
+</div>

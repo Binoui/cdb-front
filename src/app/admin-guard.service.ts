@@ -11,7 +11,7 @@ export class AdminGuard implements CanActivate {
   constructor(private appService: AppService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-    let url: string = state.url;
+    const url: string = state.url;
 
     return this.checkAdmin(url);
   }
@@ -25,6 +25,6 @@ export class AdminGuard implements CanActivate {
         this.router.navigate(['/login']);
         return false;
       }
-    }).catch(() => { return false; });
+    }).catch(() => false);
   }
 }

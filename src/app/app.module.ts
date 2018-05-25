@@ -38,7 +38,8 @@ import { UserAddFormComponent } from './user-add-form/user-add-form.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    CompanyModule
+    CompanyModule,
+    ComputerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

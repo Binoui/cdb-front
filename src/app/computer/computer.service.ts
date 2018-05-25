@@ -16,8 +16,8 @@ export class ComputerService {
   }
 
   getComputers(search: string, page: number, order = 'ID', sort = true, size = 10): Observable<Computer[]> {
-    if ((!search) && (order === 'ID') && (sort = true)) {
-      return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=' + page + '&size=' + size);
+    if ((!search)) {
+      search = '' ;
     }
       return this.httpClient.get<Computer[]>(this.baseUrl + '/computers/page?page=' + page + '&size=' + size + '&search=' + search
         + '&column=' + order + '&ascending=' + sort);
