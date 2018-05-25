@@ -29,4 +29,8 @@ export class AppService {
   isLoggedIn(): boolean {
     return localStorage.getItem('token') != null;
   }
+
+  logout(): Observable<Object> {
+    return this.httpClient.get(this.baseUrl + '/logout?token=' + this.getToken());
+  }
 }
