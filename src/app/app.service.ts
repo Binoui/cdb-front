@@ -18,8 +18,8 @@ export class AppService {
 
     let body = 'username=' + username + '&password=' + password;
     return await this.httpClient.post(this.baseUrl + "/login", body, { headers: headers, responseType: 'text' }).toPromise().then(
-        (token) => localStorage.setItem("token", token),
-        (error) => console.log("error : ", error));
+      (token) => localStorage.setItem("token", token),
+      (error) => console.log("error : ", error));
   }
 
   getToken(): string {
@@ -28,5 +28,20 @@ export class AppService {
 
   isLoggedIn(): boolean {
     return localStorage.getItem("token") != null;
+  }
+
+  async isAdmin(): Promise<boolean> {
+    if (!this.isLoggedIn()) return false;
+
+    return await this.httpClient.get(this.baseUrl + "/current?token=" + this.getToken()).toPromise().then(
+      (user) => {
+        if (user["roles"].some(item => item.label === "ROLE_ADMIN")) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      (error) => { console.log("error : " + error); return false; }
+    );
   }
 }
