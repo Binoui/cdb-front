@@ -2,9 +2,15 @@
     <div class="card-header">
         <i class="fas fa-chevron-circle-right"></i>
         ID : {{ computer.id }}
-        <label>Delete:
-          <input type="checkbox" ng-model="checkboxModel.value1" (click)="addComputerToDelete()">
-        </label><br/>
+
+
+        <fieldset class="form-group">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" ng-model="checkboxModel.value1" (click)="addComputerToDelete()" value="" type="checkbox"> Select for deletion
+                </label>
+            </div>
+        </fieldset>
     </div>
 
     <div class="card-body">
@@ -22,6 +28,7 @@
 
     <div class="card-footer">
         <button (click)="showDetails()" type="button" class="btn btn-outline-primary">{{buttonText}}</button>
-        <button i18n title="Click here if you want to edit or delete this computer" routerLink="/computer/{{ computer.id }}" type="button" class="btn btn-primary">Learn More</button>
+        <button i18n title="Click here if you want to edit or delete this computer" routerLink="/computer/{{ computer.id }}" type="button"
+            class="btn btn-primary">Learn More</button>
     </div>
 </div>

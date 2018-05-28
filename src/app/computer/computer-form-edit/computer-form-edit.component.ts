@@ -18,6 +18,7 @@ export class ComputerFormEditComponent implements OnInit {
   });
   @Input() companies: Company[];
   @Input() computerToEdit: Computer;
+  message: String;
 
   constructor(private route: ActivatedRoute, private computerService: ComputerService, private companyService: CompanyService,
               private router: Router, private fb: FormBuilder) { }
@@ -59,7 +60,9 @@ export class ComputerFormEditComponent implements OnInit {
           this.computer.companyDTO.id = this.computerForm.get('companies').value;
         }
       }
-      this.computerService.editComputer(this.computer).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
+      this.computerService.editComputer(this.computer).subscribe(
+        () => this.router.navigate(['computer']),
+        error => {console.error('Error cannot edit computer'); this.message = 'Cannot add computer'; });
     }
   }
 }

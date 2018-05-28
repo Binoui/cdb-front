@@ -36,11 +36,11 @@ export class ComputerService {
     return this.httpClient.post<Computer>(this.baseUrl + '/computer', computer);
   }
 
-  getCountPageComputer(search = ''): Observable<number> {
+  getCountPageComputer(size: number, search = ''): Observable<number> {
     if (!search) {
-      return this.httpClient.get<number>(this.baseUrl + '/computers/page/count');
+      return this.httpClient.get<number>(this.baseUrl + '/computers/page/count?size=' + size);
     } else {
-      return this.httpClient.get<number>(this.baseUrl + '/computers/page/count?search=' + search);
+      return this.httpClient.get<number>(this.baseUrl + '/computers/page/count?search=' + search + '&size=' + size);
     }
   }
 

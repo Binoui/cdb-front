@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Computer} from '../computer.model';
-import {ComputerService} from '../computer.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ToDeleteList} from '../toDeleteList.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Computer } from '../computer.model';
+import { ComputerService } from '../computer.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToDeleteList } from '../toDeleteList.model';
 
 @Component({
   selector: 'app-computers',
@@ -20,11 +20,10 @@ export class ComputersComponent implements OnInit {
       companies => this.computers = companies,
       error => console.error('Error getting list of Companies', error)
     );
-    this.computerService.getCountPageComputer(this._search).subscribe(
-      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+    this.computerService.getCountPageComputer(this.size, this._search).subscribe(
+      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );
-    this.calculatePages(this.size);
   }
   @Output() searchChange = new EventEmitter<number>();
   numberOfPage: number;
@@ -45,17 +44,20 @@ export class ComputersComponent implements OnInit {
   delete() {
     console.log(ToDeleteList.list);
     let names = '';
-    for ( let i = 0 ; i < ToDeleteList.list.length - 1 ; i++ ) {
+    for (let i = 0; i < ToDeleteList.list.length - 1; i++) {
       names = names + ToDeleteList.list[i] + ' ; ';
     }
     names = names + ToDeleteList.list[ToDeleteList.list.length - 1];
     if (confirm('Are you sure to delete ' + names)) {
-    for ( let i = 0 ; i < ToDeleteList.list.length ; i++ ) {
-      this.computerService.deleteComputer(ToDeleteList.list[i]).
-      subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
+      for (let i = 0; i < ToDeleteList.list.length; i++) {
+        this.computerService.deleteComputer(ToDeleteList.list[i]).
+          subscribe(
+            () => this.router.navigate(['computer']),
+            error => console.error('Error deleting computer(s)', error)
+          );
+      }
     }
-    }
-    }
+  }
 
   constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 
@@ -63,47 +65,45 @@ export class ComputersComponent implements OnInit {
     this.resetToDelete();
     this.order = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
-      computers => {this.computers = computers; },
+      computers => { this.computers = computers; },
       error => console.error('Error getting list of Computers', error)
     );
-    this.computerService.getCountPageComputer(this._search).subscribe(
-      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+    this.computerService.getCountPageComputer(this.size, this._search).subscribe(
+      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
-    this.calculatePages(this.size);
+
   }
 
   setSizeElement(value: number) {
     this.resetToDelete();
-        this.size = value;
+    this.size = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
-      computers => {this.computers = computers; },
+      computers => { this.computers = computers; },
       error => console.error('Error getting list of Computers', error)
     );
-    this.computerService.getCountPageComputer(this._search).subscribe(
-      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+    this.computerService.getCountPageComputer(this.size, this._search).subscribe(
+      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
-    this.calculatePages(this.size);
   }
 
   setAsc(value: boolean) {
     this.resetToDelete();
     this.asc = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
-      computers => {this.computers = computers; },
+      computers => { this.computers = computers; },
       error => console.error('Error getting list of Computers', error)
     );
-    this.computerService.getCountPageComputer(this._search).subscribe(
-      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+    this.computerService.getCountPageComputer(this.size, this._search).subscribe(
+      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
-    this.calculatePages(this.size);
   }
 
   calculatePages(size) {
     let PageMax;
-    PageMax  = this.numberOfPage;
+    PageMax = this.numberOfPage;
     if (this.page > 1) {
       if (!(this.page < PageMax)) {
         this.page = PageMax;
@@ -116,12 +116,12 @@ export class ComputersComponent implements OnInit {
     if (this.page > 1) {
       this.before.push(1);
     }
-    for ( let i = -3; i < 0; i++) {
+    for (let i = -3; i < 0; i++) {
       if ((this.page + i > 1) && (i !== 0) && (this.page + i < PageMax)) {
         this.before.push(this.page + i);
       }
     }
-    for ( let i = 1; i < 4; i++) {
+    for (let i = 1; i < 4; i++) {
       if ((this.page + i > 1) && (i !== 0) && (this.page + i < PageMax)) {
         this.after.push(this.page + i);
       }
@@ -151,7 +151,7 @@ export class ComputersComponent implements OnInit {
 
   ngOnInit() {
     this.resetToDelete();
-    this.page = parseInt(this.route.snapshot.paramMap.get('page'), 10 );
+    this.page = parseInt(this.route.snapshot.paramMap.get('page'), 10);
     if (!this.page) {
       this.page = 1;
     }
@@ -159,7 +159,7 @@ export class ComputersComponent implements OnInit {
       companies => this.computers = companies,
       error => console.error('Error getting list of Computers', error)
     );
-    this.computerService.getCountPageComputer().subscribe(
+    this.computerService.getCountPageComputer(this.size).subscribe(
       numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );

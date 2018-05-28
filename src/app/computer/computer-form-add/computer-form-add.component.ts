@@ -17,6 +17,7 @@ export class ComputerFormAddComponent implements OnInit {
     name: new FormControl()
   });
   @Input() companies: Company[];
+  message: String;
 
   constructor(private computerService: ComputerService, private companyService: CompanyService,
     private router: Router, private fb: FormBuilder) { }
@@ -32,7 +33,7 @@ export class ComputerFormAddComponent implements OnInit {
   createForm() {
     this.computerForm = this.fb.group({
       name: ['', Validators.required],
-      companies: ['', Validators.required],
+      companies: '',
       introduced: '',
       discontinued: '',
     });
@@ -49,7 +50,9 @@ export class ComputerFormAddComponent implements OnInit {
         this.computer.companyDTO = new Company();
         this.computer.companyDTO.id = this.computerForm.get('companies').value;
       }
-      this.computerService.addComputer(this.computer).subscribe(() => this.router.navigate(['recipes']), () => console.log('ko'));
+      this.computerService.addComputer(this.computer).subscribe(
+        () => this.router.navigate(['/computers']),
+        (error) => { console.error('Cannot add computer : ', error); this.message = 'Cannot add computer'; });
     }
   }
 }

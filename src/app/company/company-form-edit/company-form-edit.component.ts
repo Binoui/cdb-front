@@ -15,6 +15,8 @@ export class CompanyFormEditComponent implements OnInit {
     name: new FormControl()
   });
 
+  message: String;
+
   constructor(private route: ActivatedRoute, private companyService: CompanyService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -31,7 +33,9 @@ export class CompanyFormEditComponent implements OnInit {
   editCompany() {
     if (this.companyForm.valid) {
       this.company.name = this.companyForm.get('name').value;
-      this.companyService.editCompany(this.company).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
+      this.companyService.editCompany(this.company).subscribe(
+        () => this.router.navigate(['computer']),
+        error => {console.error('Error editing company'); this.message = 'Error editing company'; });
     }
   }
 }

@@ -40,7 +40,8 @@ export class UserConnectionFormComponent implements OnInit {
         } else {
           this.message = 'Incorrect username or password';
         }
-      });
+      },
+    error => this.message = 'Incorrect username or password');
     }
   }
 }
