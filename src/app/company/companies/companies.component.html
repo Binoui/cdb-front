@@ -38,8 +38,17 @@
         </li>
     </ul>
 </div>
-<br>
-<h3> Number of element by page : </h3>
-<button (click)="setSizeElement(10)">10</button>
-<button (click)="setSizeElement(25)">25</button>
-<button (click)="setSizeElement(50)">50</button>
+<div>
+  <h3 class="text-center text-muted"> Number of element by page : </h3>
+  <ul class="pagination pagination-lg justify-content-center">
+    <li class="page-item">
+      <a class="page-link" (click)="setSizeElement(10)">10</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" (click)="setSizeElement(25)">25</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" (click)="setSizeElement(50)">50</a>
+    </li>
+  </ul>
+</div>

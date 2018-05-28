@@ -1,5 +1,6 @@
 <input class="form-control mr-sm-2" placeholder="Search" type="text" [(ngModel)]="search">
 
+
 <ul class="nav nav-pills">
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Order By</a>
@@ -22,6 +23,8 @@
     </li>
 </ul>
 
+
+<button (click)="delete()"> Delete selected computer</button>
 <div class="card-columns margintop">
     <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
 </div>
