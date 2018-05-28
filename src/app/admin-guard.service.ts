@@ -22,7 +22,7 @@ export class AdminGuard implements CanActivate {
         return true;
       } else {
         this.appService.redirectUrl = url;
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'], { queryParams: {error: "admin"}});
         return false;
       }
     }).catch(() => false);

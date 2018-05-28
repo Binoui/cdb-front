@@ -18,9 +18,17 @@ export class AppService {
 
     const body = 'username=' + username + '&password=' + password;
     return await this.httpClient.post(this.baseUrl + '/login', body, { headers: headers, responseType: 'text' }).toPromise().then(
-      (token) => localStorage.setItem('token', token),
+      (token) => { console.log('token : ' + token); localStorage.setItem('token', token); },
       (error) => console.log('error : ', error));
+  }
 
+  async register(username: string, password: string): Promise<void> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+
+    const body = 'username=' + username + '&password=' + password;
+    return await this.httpClient.post(this.baseUrl + '/register', body, { headers: headers, responseType: 'text' }).toPromise().then(
+      (token) => { console.log('token : ' + token); localStorage.setItem('token', token); },
+      (error) => console.log('error : ', error));
   }
 
   logout(): Observable<Object> {
