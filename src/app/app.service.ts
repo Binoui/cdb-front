@@ -22,6 +22,15 @@ export class AppService {
       (error) => console.log('error : ', error));
   }
 
+  async register(username: string, password: string): Promise<void> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+
+    const body = 'username=' + username + '&password=' + password;
+    return await this.httpClient.post(this.baseUrl + '/register', body, { headers: headers, responseType: 'text' }).toPromise().then(
+      (token) => { console.log('token : ' + token); localStorage.setItem('token', token); },
+      (error) => console.log('error : ', error));
+  }
+
   logout(): Observable<Object> {
     return this.httpClient.get(this.baseUrl + '/logout?token=' + this.getToken());
   }

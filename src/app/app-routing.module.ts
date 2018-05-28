@@ -14,6 +14,7 @@ import { UserConnectionFormComponent } from './user-connection-form/user-connect
 import { AdminGuard } from './admin-guard.service';
 import { UserGuard } from './user-guard.service';
 import { UserAddFormComponent } from './user-add-form/user-add-form.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -71,8 +72,8 @@ const routes: Routes = [
     canActivate: [UserGuard],
   },
   {
-    path: 'signin',
-    component: UserAddFormComponent,
+    path: 'register',
+    component: RegisterComponent,
     pathMatch: 'full'
   },
   {
