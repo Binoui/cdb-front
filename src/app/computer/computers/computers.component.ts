@@ -19,10 +19,10 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Companies', error)
     );
     this.computerService.getCountPageComputer(this._search).subscribe(
-      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(); },
+      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );
-    this.calculatePages();
+    this.calculatePages(this.size);
   }
   @Output() searchChange = new EventEmitter<number>();
   numberOfPage: number;
@@ -45,10 +45,10 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Computers', error)
     );
     this.computerService.getCountPageComputer(this._search).subscribe(
-      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(); },
+      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
-    this.calculatePages();
+    this.calculatePages(this.size);
   }
 
   setSizeElement(value: number) {
@@ -58,10 +58,10 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Computers', error)
     );
     this.computerService.getCountPageComputer(this._search).subscribe(
-      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(); },
+      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
-    this.calculatePages();
+    this.calculatePages(this.size);
   }
 
   setAsc(value: boolean) {
@@ -71,13 +71,13 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Computers', error)
     );
     this.computerService.getCountPageComputer(this._search).subscribe(
-      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(); },
+      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
-    this.calculatePages();
+    this.calculatePages(this.size);
   }
 
-  calculatePages(size = 10) {
+  calculatePages(size) {
     let PageMax;
     PageMax  = this.numberOfPage;
     if (this.page > 1) {
@@ -115,7 +115,7 @@ export class ComputersComponent implements OnInit {
     }
   }
 
-  updatePage(page: number, size = 10 ) {
+  updatePage(page: number, size) {
     this.page = page;
     this.calculatePages(size);
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
@@ -134,11 +134,11 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Computers', error)
     );
     this.computerService.getCountPageComputer().subscribe(
-      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(); },
+      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
     this.computerService.getCountComputer().subscribe(
-      numberOfCompanies => { this.numberOfComputers = numberOfCompanies; this.calculatePages(); },
+      numberOfCompanies => { this.numberOfComputers = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
   }
