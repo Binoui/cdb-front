@@ -13,7 +13,6 @@ import { ComputerFormEditComponent } from './computer/computer-form-edit/compute
 import { UserConnectionFormComponent } from './user-connection-form/user-connection-form.component';
 import { AdminGuard } from './admin-guard.service';
 import { UserGuard } from './user-guard.service';
-import { UserAddFormComponent } from './user-add-form/user-add-form.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [

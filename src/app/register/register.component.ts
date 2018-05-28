@@ -40,7 +40,8 @@ export class RegisterComponent implements OnInit {
         } else {
           this.message = 'Username already in use';
         }
-      });
+      },
+        (error) => { this.message = 'Username already in use'; console.error("error when adding user : " + error); });
     }
   }
 }
