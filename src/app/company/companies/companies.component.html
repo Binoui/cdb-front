@@ -1,8 +1,27 @@
 <input class="form-control mr-sm-2" placeholder="Search" type="text" [(ngModel)]="search">
-<h3> Ordonner par :</h3><button (click)="setOrder('ID')" >ID</button><button (click)="setOrder('NAME')" >Nom</button>
-<br>
-<h3> Ordre :</h3><button (click)="setAsc(true)">Croissant</button><button (click)="setAsc(false)">Décroissant</button>
+<ul class="nav nav-pills">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Order By</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="setOrder('ID')">ID</a>
+            <a class="dropdown-item" (click)="setOrder('NAME')">Name</a>
+
+        </div>
+
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort Order</a>
+        <div class="dropdown-menu">
+
+            <a class="dropdown-item" (click)="setAsc(true)">ASC</a>
+            <a class="dropdown-item" (click)="setAsc(false)">DESC</a>
+        </div>
+    </li>
+</ul>
+
+
 <div class="card-columns margintop">
+
     <app-company class="col" *ngFor="let company of companies" [company]="company"></app-company>
 </div>
 
