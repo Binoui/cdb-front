@@ -4,6 +4,8 @@
 <button (click)="setOrder('COMPANY')" >Company</button>
 <br>
 <h3> Ordre :</h3><button (click)="setAsc(true)">Croissant</button><button (click)="setAsc(false)">Décroissant</button>
+<br>
+<button (click)="delete()"> Delete selected computer</button>
 <div class="card-columns margintop">
     <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
 </div>

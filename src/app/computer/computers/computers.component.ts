@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Computer} from '../computer.model';
 import {ComputerService} from '../computer.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ToDeleteList} from '../toDeleteList.model';
 
 @Component({
   selector: 'app-computers',
@@ -13,6 +14,7 @@ export class ComputersComponent implements OnInit {
   @Input() _search: string;
   @Input('_search')
   set search(value: string) {
+    this.resetToDelete();
     this._search = value;
     this.computerService.getComputers(this._search, this.page - 1).subscribe(
       companies => this.computers = companies,
@@ -36,9 +38,29 @@ export class ComputersComponent implements OnInit {
   asc = true;
   size = 10;
 
+  resetToDelete() {
+    ToDeleteList.list = [];
+  }
+
+  delete() {
+    console.log(ToDeleteList.list);
+    let names = '';
+    for ( let i = 0 ; i < ToDeleteList.list.length - 1 ; i++ ) {
+      names = names + ToDeleteList.list[i] + ' ; ';
+    }
+    names = names + ToDeleteList.list[ToDeleteList.list.length - 1];
+    if (confirm('Are you sure to delete ' + names)) {
+    for ( let i = 0 ; i < ToDeleteList.list.length ; i++ ) {
+      this.computerService.deleteComputer(ToDeleteList.list[i]).
+      subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
+    }
+    }
+    }
+
   constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 
   setOrder(value: string) {
+    this.resetToDelete();
     this.order = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
       computers => {this.computers = computers; },
@@ -52,6 +74,7 @@ export class ComputersComponent implements OnInit {
   }
 
   setSizeElement(value: number) {
+    this.resetToDelete();
         this.size = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
       computers => {this.computers = computers; },
@@ -65,6 +88,7 @@ export class ComputersComponent implements OnInit {
   }
 
   setAsc(value: boolean) {
+    this.resetToDelete();
     this.asc = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
       computers => {this.computers = computers; },
@@ -116,6 +140,7 @@ export class ComputersComponent implements OnInit {
   }
 
   updatePage(page: number, size) {
+    this.resetToDelete();
     this.page = page;
     this.calculatePages(size);
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
@@ -125,6 +150,7 @@ export class ComputersComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.resetToDelete();
     this.page = parseInt(this.route.snapshot.paramMap.get('page'), 10 );
     if (!this.page) {
       this.page = 1;
