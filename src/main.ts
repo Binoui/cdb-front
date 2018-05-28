@@ -7,21 +7,19 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
+// Enable the following for french version of the app
+// // use the require method provided by webpack
+// declare const require;
+// // we use the webpack raw-loader to return the content as a string
+// const truc = require('raw-loader!./locale/messages.fr.xlf');
 
-// use the require method provided by webpack
-declare const require;
-// we use the webpack raw-loader to return the content as a string
-const truc = require('raw-loader!./locale/messages.fr.xlf');
 
-// export function getTranslations(): string[] {
-//   const truc = require('raw-loader!./locale/messages.' + (localStorage.getItem('locale') || 'fr') + '.xlf');
-//     return ['{provide: TRANSLATIONS, useValue: ' + truc + '},', '{provide: TRANSLATIONS_FORMAT, useValue: \'xlf\'}'];
-// }
 
 platformBrowserDynamic().bootstrapModule(AppModule, {
   providers: [
-    { provide: TRANSLATIONS, useValue: truc },
-    { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' }
+    // Enable the following for french version of the app
+    // { provide: TRANSLATIONS, useValue: truc },
+    // { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' }
   ]
 
 })
