@@ -1,5 +1,7 @@
 <input class="form-control mr-sm-2" placeholder="Search" type="text" [(ngModel)]="search">
-<h3> Ordonner par :</h3><button (click)="setOrder('ID')" >ID</button><button (click)="setOrder('NAME')" >Nom</button>
+<h3> Ordonner par :</h3><button (click)="setOrder('ID')" >ID</button><button (click)="setOrder('NAME')" >Name</button>
+<button (click)="setOrder('INTRODUCED')" >Introduced</button><button (click)="setOrder('DISCONTINUED')" >Discontinued</button>
+<button (click)="setOrder('COMPANY')" >Company</button>
 <br>
 <h3> Ordre :</h3><button (click)="setAsc(true)">Croissant</button><button (click)="setAsc(false)">Décroissant</button>
 <div class="card-columns margintop">
@@ -18,3 +20,8 @@
         </li>
     </ul>
 </div>
+<br>
+<h3> Number of element by page : </h3>
+<button (click)="setSizeElement(10)">10</button>
+<button (click)="setSizeElement(25)">25</button>
+<button (click)="setSizeElement(50)">50</button>

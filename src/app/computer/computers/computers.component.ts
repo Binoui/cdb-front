@@ -34,12 +34,26 @@ export class ComputersComponent implements OnInit {
   next: number;
   order: string;
   asc = true;
+  size = 10;
 
   constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 
   setOrder(value: string) {
     this.order = value;
-    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc).subscribe(
+    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
+      computers => {this.computers = computers; },
+      error => console.error('Error getting list of Computers', error)
+    );
+    this.computerService.getCountPageComputer(this._search).subscribe(
+      numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(); },
+      error => console.error('Error getting count of Computers', error)
+    );
+    this.calculatePages();
+  }
+
+  setSizeElement(value: number) {
+        this.size = value;
+    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
       computers => {this.computers = computers; },
       error => console.error('Error getting list of Computers', error)
     );
@@ -52,7 +66,7 @@ export class ComputersComponent implements OnInit {
 
   setAsc(value: boolean) {
     this.asc = value;
-    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc).subscribe(
+    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
       computers => {this.computers = computers; },
       error => console.error('Error getting list of Computers', error)
     );
@@ -104,7 +118,7 @@ export class ComputersComponent implements OnInit {
   updatePage(page: number, size = 10 ) {
     this.page = page;
     this.calculatePages(size);
-    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc).subscribe(
+    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
       companies => this.computers = companies,
       error => console.error('Error getting list of Computers', error)
     );
@@ -115,7 +129,7 @@ export class ComputersComponent implements OnInit {
     if (!this.page) {
       this.page = 1;
     }
-    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc).subscribe(
+    this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
       companies => this.computers = companies,
       error => console.error('Error getting list of Computers', error)
     );
