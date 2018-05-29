@@ -3,12 +3,11 @@
   <h4 class="alert-heading">Warning!</h4>
   <p class="mb-0">{{ message }}.</p>
 </div>
-
 <div class="card border-primary mb-3 mx-auto" style="max-width: 30rem;">
   <div class="card-body">
     <form [formGroup]="userForm">
       <fieldset>
-        <legend i18n>Login :</legend>
+        <legend i18n>Create Account</legend>
         <div class="form-group">
           <label i18n for="username">Username:</label>
           <input class="form-control" id="Username" placeholder="Username" type="text" formControlName="username">
@@ -17,7 +16,7 @@
           <label i18n for="password">Password:</label>
           <input class="form-control" id="Password" placeholder="Password" type="password" formControlName="password">
         </div>
-        <button i18n class="btn btn-primary btn-block" (click)="login()"> Login </button>
+        <button i18n class="btn btn-primary btn-block" (click)="register()"> Register </button>
       </fieldset>
     </form>
     <p i18n type="hidden">Form value: {{ userForm.status | json }}</p>

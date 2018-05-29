@@ -21,12 +21,18 @@
             <a class="dropdown-item" (click)="setAsc(false)">DESC</a>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link active" (click)="delete()"> Delete selected computer</a>
+    </li>
+  <li>
+      <a class="nav-link active" (click)="selectAll()"> Select all computer of the page</a>
+  </li>
+  <li>
+      <a class="nav-link active" (click)="deselectAll()"> Deselect all computer of the page</a>
+    </li>
 </ul>
 
 
-<button (click)="delete()"> Delete selected computer</button>
-<button (click)="selectAll()"> Select all computer of the page</button>
-<button (click)="deselectAll()"> Deselect all computer of the page</button>
 <div class="card-columns margintop">
     <app-computer class="col" *ngFor="let computer of computers" [computer]="computer" (addDelete)="onDelete($event)" (sendBoolean)="onReceive($event)"></app-computer>
 </div>

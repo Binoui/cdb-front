@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {CompanyService} from '../company.service';
-import {Router} from '@angular/router';
-import {Company} from '../company.model';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CompanyService } from '../company.service';
+import { Router } from '@angular/router';
+import { Company } from '../company.model';
 
 @Component({
   selector: 'app-company-form-add',
@@ -12,9 +12,11 @@ import {Company} from '../company.model';
 export class CompanyFormAddComponent implements OnInit {
 
   company = new Company();
-  companyForm = new FormGroup ({
+  companyForm = new FormGroup({
     name: new FormControl()
   });
+
+  message: String;
 
   constructor(private companyService: CompanyService, private router: Router, private fb: FormBuilder) { }
 
@@ -34,7 +36,9 @@ export class CompanyFormAddComponent implements OnInit {
   addCompany() {
     if (this.companyForm.valid) {
       this.company.name = this.companyForm.get('name').value;
-      this.companyService.addCompany(this.company.name).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
+      this.companyService.addCompany(this.company.name).subscribe(
+        () => this.router.navigate(['computer']),
+        error => { console.log('ko'); this.message = 'Error creating this company'; });
     }
   }
 

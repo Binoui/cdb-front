@@ -5,11 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
 
 @Component({
-  selector: 'app-user-connection-form',
-  templateUrl: './user-connection-form.component.html',
-  styleUrls: ['./user-connection-form.component.scss']
+  selector: 'register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class UserConnectionFormComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   userForm = new FormGroup({
     name: new FormControl(),
     password: new FormControl(),
@@ -19,9 +19,6 @@ export class UserConnectionFormComponent implements OnInit {
 
   constructor(private router: Router, private fb: FormBuilder, private appService: AppService, ) {
     this.createForm();
-    if (router.url.indexOf('error=admin') !== -1) {
-      this.message = 'You don\'t have rights to access this page';
-    }
   }
 
   ngOnInit() {
@@ -34,17 +31,17 @@ export class UserConnectionFormComponent implements OnInit {
     });
   }
 
-  login() {
+  register() {
     if (this.userForm.valid) {
-      this.appService.login(this.userForm.get('username').value, this.userForm.get('password').value).then(() => {
+      this.appService.register(this.userForm.get('username').value, this.userForm.get('password').value).then(() => {
         if (this.appService.isLoggedIn()) {
           const redirect = this.appService.redirectUrl ? this.appService.redirectUrl : '/home';
           this.router.navigate([redirect]);
         } else {
-          this.message = 'Incorrect username or password';
+          this.message = 'Username already in use';
         }
       },
-    error => this.message = 'Incorrect username or password');
+        (error) => { this.message = 'Username already in use'; console.error("error when adding user : " + error); });
     }
   }
 }

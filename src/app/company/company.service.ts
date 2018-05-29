@@ -48,11 +48,11 @@ export class CompanyService {
   }
 
 
-  getCountPageCompanies(search = ''): Observable<number> {
+  getCountPageCompanies(size: number, search = ''): Observable<number> {
     if (!search) {
-      return this.httpClient.get<number>(this.baseUrl + '/companies/page/count');
+      return this.httpClient.get<number>(this.baseUrl + '/companies/page/count?size=' + size);
     } else {
-      return this.httpClient.get<number>(this.baseUrl + '/companies/page/count?search=' + search);
+      return this.httpClient.get<number>(this.baseUrl + '/companies/page/count?search=' + search + '&size=' + size);
     }
   }
 
