@@ -3,7 +3,7 @@
         <i class="fas fa-chevron-circle-right"></i>
         ID : {{ computer.id }}
         <label>Delete:
-          <input type="checkbox" ng-model="checkboxModel.value1" (click)="addComputerToDelete()">
+          <input type="checkbox" ng-model="checkboxModel.value1" (click)="addComputerToDelete()"[checked]="toDelete[0]" >
         </label><br/>
     </div>
 
