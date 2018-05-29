@@ -25,6 +25,10 @@ export class ComputersComponent implements OnInit {
       numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers},
+      error => console.error('Error getting count of Computers', error)
+    );
   }
   @Output() searchChange = new EventEmitter<number>();
   numberOfPage: number;
@@ -122,6 +126,10 @@ export class ComputersComponent implements OnInit {
       numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers},
+      error => console.error('Error getting count of Computers', error)
+    );
   }
 
   setAsc(value: boolean) {
@@ -134,6 +142,11 @@ export class ComputersComponent implements OnInit {
     );
     this.computerService.getCountPageComputer(this.size, this._search).subscribe(
       numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Computers', error)
+    );
+
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers},
       error => console.error('Error getting count of Computers', error)
     );
   }
@@ -184,6 +197,10 @@ export class ComputersComponent implements OnInit {
       companies => this.computers = companies,
       error => console.error('Error getting list of Computers', error)
     );
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers},
+      error => console.error('Error getting count of Computers', error)
+    );
   }
 
   ngOnInit() {
@@ -203,6 +220,10 @@ export class ComputersComponent implements OnInit {
     );
     this.computerService.getCountComputer().subscribe(
       numberOfCompanies => { this.numberOfComputers = numberOfCompanies; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Computers', error)
+    );
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers},
       error => console.error('Error getting count of Computers', error)
     );
   }
