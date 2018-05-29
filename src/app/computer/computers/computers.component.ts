@@ -9,10 +9,12 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./computers.component.scss']
 })
 export class ComputersComponent implements OnInit {
+
   computers: Computer[];
   @Input() _search: string;
   @Input('_search')
   set search(value: string) {
+    this.states = [];
     this.resetToDelete();
     this._search = value;
     this.computerService.getComputers(this._search, this.page - 1).subscribe(
@@ -65,9 +67,10 @@ export class ComputersComponent implements OnInit {
     selectAll() {
       for (let i = 0; i < this.states.length; i++) {
         this.states[i][0] = true;
-        if (!(this.toDelete.includes(this.computers[i].id))) {
-          this.toDelete.push(this.computers[i].id);
-        }
+          console.log(this.computers[i] + '    ' + i);
+          if (!(this.toDelete.includes(this.computers[i].id))) {
+            this.toDelete.push(this.computers[i].id);
+          }
       }
     }
 
@@ -93,6 +96,7 @@ export class ComputersComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 
   setOrder(value: string) {
+    this.states = [];
     this.resetToDelete();
     this.order = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
@@ -173,7 +177,6 @@ export class ComputersComponent implements OnInit {
   }
 
   updatePage(page: number, size) {
-    this.states = [];
     this.resetToDelete();
     this.page = page;
     this.calculatePages(size);
