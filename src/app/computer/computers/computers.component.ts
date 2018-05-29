@@ -44,17 +44,21 @@ export class ComputersComponent implements OnInit {
   }
 
   delete() {
-    console.log(this.toDelete);
     let names = '';
     for ( let i = 0 ; i < this.toDelete.length - 1 ; i++ ) {
       names = names + this.toDelete[i] + ' ; ';
     }
-    names = names + this.toDelete[this.toDelete.length - 1];
-    if (confirm('Are you sure to delete ' + names)) {
-    for ( let i = 0 ; i < this.toDelete.length ; i++ ) {
-      this.computerService.deleteComputer(this.toDelete[i]).
-      subscribe(() => this.router.navigate(['computer']), error => console.error('Error deleting computer(s)', error));
-    }
+    if (this.toDelete.length > 0) {
+      names = names + this.toDelete[this.toDelete.length - 1];
+
+      if (confirm('Are you sure to delete ' + names)) {
+        for (let i = 0; i < this.toDelete.length; i++) {
+          this.computerService.deleteComputer(this.toDelete[i]).
+          subscribe(() => this.router.navigate(['computer']), error => console.error('Error deleting computer(s)', error));
+        }
+      }
+    } else {
+      alert('No computer selected');
     }
   }
 
@@ -76,16 +80,13 @@ export class ComputersComponent implements OnInit {
 
     onDelete(value: number) {
       if (this.toDelete.includes(value)) {
-        console.log(this.toDelete.indexOf(value));
         this.toDelete.splice(this.toDelete.indexOf(value), 1 );
-        console.log(this.toDelete.indexOf(value));
       } else {
         this.toDelete.push(value);
       }
     }
 
     onReceive(value: boolean[]) {
-    console.log(value);
       this.states.push(value);
     }
 
