@@ -36,15 +36,19 @@ export class UserConnectionFormComponent implements OnInit {
 
   login() {
     if (this.userForm.valid) {
+      if (this.appService.isLoggedIn()) { 
+        this.appService.logout();
+      }
+
       this.appService.login(this.userForm.get('username').value, this.userForm.get('password').value).then(() => {
         if (this.appService.isLoggedIn()) {
-          const redirect = this.appService.redirectUrl ? this.appService.redirectUrl : '/home';
-          this.router.navigate([redirect]);
+            const redirect = this.appService.redirectUrl ? this.appService.redirectUrl : '/home';
+            this.router.navigate([redirect]);
         } else {
           this.message = 'Incorrect username or password';
         }
       },
-    error => this.message = 'Incorrect username or password');
+        (error) => { console.log("couldn't log in"); this.message = 'Incorrect username or password'; });
     }
   }
 }
