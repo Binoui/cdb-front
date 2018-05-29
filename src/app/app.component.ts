@@ -13,8 +13,6 @@ const LOGOUT = 'Logout';
 export class AppComponent {
   title = 'app';
 
-  buttonText = 'josay';
-
   constructor(private appService: AppService) {
 
   }
@@ -22,8 +20,6 @@ export class AppComponent {
     console.log('pre' + this.appService.isLoggedIn());
     if (this.appService.isLoggedIn()) {
       this.appService.logout();
-      localStorage.removeItem('token');
-
     }
   }
 }
