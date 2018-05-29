@@ -67,7 +67,7 @@ export class ComputerFormEditComponent implements OnInit {
       }
       this.computerService.editComputer(this.computer).subscribe(
         () => this.router.navigate(['computer']),
-        error => {console.error('Error cannot edit computer'); this.message = 'Cannot add computer'; });
+        error => {console.error('Error cannot edit computer'); this.message = 'Error cannot edit computer'; });
     }
   }
 }
