@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Computer} from './computer.model';
-import {ToDeleteList} from './toDeleteList.model';
 
 const SHOW_DETAILS = 'Show Details';
 const HIDE_DETAILS = 'Hide Details';
@@ -13,23 +12,32 @@ const HIDE_DETAILS = 'Hide Details';
 export class ComputerComponent implements OnInit {
 
   @Input() computer: Computer;
+  @Output() addDelete: EventEmitter<number> = new EventEmitter();
+  @Output() sendBoolean: EventEmitter<boolean[]> = new EventEmitter();
   isExpanded = false;
+  toDelete: boolean[];
   buttonText = SHOW_DETAILS;
-  toDelete = false;
 
   addComputerToDelete() {
-    if (this.toDelete) {
-      ToDeleteList.list.lastIndexOf(this.computer.id);
-    } else {
-      ToDeleteList.list.push(this.computer.id);
-    }
-    this.toDelete = !this.toDelete;
+    console.log('in the consle');
+    this.toDelete[0] = !this.toDelete;
+    this.addDelete.emit(this.computer.id);
+  }
+
+  onDeleteAll() {
+    this.toDelete[0] = true;
+  }
+
+  checked() {
   }
 
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.toDelete = [false];
+    this.sendBoolean.emit(this.toDelete);
   }
 
 

@@ -2,12 +2,10 @@
     <div class="card-header">
         <i class="fas fa-chevron-circle-right"></i>
         ID : {{ computer.id }}
-
-
         <fieldset class="form-group">
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" ng-model="checkboxModel.value1" (click)="addComputerToDelete()" value="" type="checkbox"> Select for deletion
+                    <input class="form-check-input" ng-model="checkboxModel.value1" (click)="addComputerToDelete()" [checked]="toDelete[0]" value="" type="checkbox"> Select for deletion
                 </label>
             </div>
         </fieldset>

@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Computer } from '../computer.model';
-import { ComputerService } from '../computer.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ToDeleteList } from '../toDeleteList.model';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Computer} from '../computer.model';
+import {ComputerService} from '../computer.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-computers',
@@ -10,10 +9,12 @@ import { ToDeleteList } from '../toDeleteList.model';
   styleUrls: ['./computers.component.scss']
 })
 export class ComputersComponent implements OnInit {
+
   computers: Computer[];
   @Input() _search: string;
   @Input('_search')
   set search(value: string) {
+    this.states = [];
     this.resetToDelete();
     this._search = value;
     this.computerService.getComputers(this._search, this.page - 1).subscribe(
@@ -35,33 +36,67 @@ export class ComputersComponent implements OnInit {
   next: number;
   order: string;
   asc = true;
+  toDelete: number[] = [];
   size = 10;
+  states: boolean[][] = [];
+  @Output() addDeleteAll: EventEmitter<number> = new EventEmitter();
 
   resetToDelete() {
-    ToDeleteList.list = [];
+    this.toDelete = [];
   }
 
   delete() {
-    console.log(ToDeleteList.list);
     let names = '';
-    for (let i = 0; i < ToDeleteList.list.length - 1; i++) {
-      names = names + ToDeleteList.list[i] + ' ; ';
+    for ( let i = 0 ; i < this.toDelete.length - 1 ; i++ ) {
+      names = names + this.toDelete[i] + ' ; ';
     }
-    names = names + ToDeleteList.list[ToDeleteList.list.length - 1];
-    if (confirm('Are you sure to delete ' + names)) {
-      for (let i = 0; i < ToDeleteList.list.length; i++) {
-        this.computerService.deleteComputer(ToDeleteList.list[i]).
-          subscribe(
-            () => this.router.navigate(['computer']),
-            error => console.error('Error deleting computer(s)', error)
-          );
+    if (this.toDelete.length > 0) {
+      names = names + this.toDelete[this.toDelete.length - 1];
+
+      if (confirm('Are you sure to delete ' + names)) {
+        for (let i = 0; i < this.toDelete.length; i++) {
+          this.computerService.deleteComputer(this.toDelete[i]).
+          subscribe(() => this.router.navigate(['computer']), error => console.error('Error deleting computer(s)', error));
+        }
       }
+    } else {
+      alert('No computer selected');
     }
   }
+
+    selectAll() {
+      for (let i = 0; i < this.states.length; i++) {
+        this.states[i][0] = true;
+          console.log(this.computers[i] + '    ' + i);
+          if (!(this.toDelete.includes(this.computers[i].id))) {
+            this.toDelete.push(this.computers[i].id);
+          }
+      }
+    }
+
+  deselectAll() {
+    for (let i = 0; i < this.states.length; i++) {
+      this.states[i][0] = false;
+    }
+    this.toDelete = [];
+  }
+
+    onDelete(value: number) {
+      if (this.toDelete.includes(value)) {
+        this.toDelete.splice(this.toDelete.indexOf(value), 1 );
+      } else {
+        this.toDelete.push(value);
+      }
+    }
+
+    onReceive(value: boolean[]) {
+      this.states.push(value);
+    }
 
   constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 
   setOrder(value: string) {
+    this.states = [];
     this.resetToDelete();
     this.order = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
@@ -76,6 +111,7 @@ export class ComputersComponent implements OnInit {
   }
 
   setSizeElement(value: number) {
+    this.states = [];
     this.resetToDelete();
     this.size = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
@@ -89,6 +125,7 @@ export class ComputersComponent implements OnInit {
   }
 
   setAsc(value: boolean) {
+    this.states = [];
     this.resetToDelete();
     this.asc = value;
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
@@ -150,6 +187,7 @@ export class ComputersComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.states = [];
     this.resetToDelete();
     this.page = parseInt(this.route.snapshot.paramMap.get('page'), 10);
     if (!this.page) {

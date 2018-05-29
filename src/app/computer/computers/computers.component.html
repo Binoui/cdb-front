@@ -24,10 +24,17 @@
     <li class="nav-item">
         <a class="nav-link active" (click)="delete()"> Delete selected computer</a>
     </li>
+  <li>
+      <a class="nav-link active" (click)="selectAll()"> Select all computer of the page</a>
+  </li>
+  <li>
+      <a class="nav-link active" (click)="deselectAll()"> Deselect all computer of the page</a>
+    </li>
 </ul>
 
+
 <div class="card-columns margintop">
-    <app-computer class="col" *ngFor="let computer of computers" [computer]="computer"></app-computer>
+    <app-computer class="col" *ngFor="let computer of computers" [computer]="computer" (addDelete)="onDelete($event)" (sendBoolean)="onReceive($event)"></app-computer>
 </div>
 <div>
     <ul class="pagination pagination-lg justify-content-center">
