@@ -17,9 +17,12 @@
             <a class="dropdown-item" (click)="setAsc(false)">DESC</a>
         </div>
     </li>
+    <li>
+        <a class="nav-link disabled">
+            <p class="text-primary"> Number of companies : {{numberOfCompanies}}</p>
+        </a>
+    </li>
 </ul>
-<div> Number of correspondant companies : {{numberOfCompanies}}</div>
-
 <div class="card-columns margintop">
 
     <app-company class="col" *ngFor="let company of companies" [company]="company"></app-company>

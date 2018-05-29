@@ -14,6 +14,7 @@ export class ComputerDetailComponent implements OnInit {
   computerId: number;
   computer: Computer;
   company: Company;
+  message: String;
 
   constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 
@@ -28,7 +29,10 @@ export class ComputerDetailComponent implements OnInit {
 
   deleteComputer() {
     if (confirm('Are you sure to delete ' + this.computer.name)) {
-      this.computerService.deleteComputer(this.computerId).subscribe(() => this.router.navigate(['computer']), () => console.log('ko'));
+      this.computerService.deleteComputer(this.computerId).subscribe(
+        () => this.router.navigate(['computer']),
+        error => { console.error('Error deleting this computer'); this.message = 'Error deleting this computer'; }
+      );
     }
 
   }

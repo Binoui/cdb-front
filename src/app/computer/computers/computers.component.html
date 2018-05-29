@@ -22,17 +22,26 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" (click)="delete()"> Delete selected computer</a>
+        <a class="nav-link" href="javascript:void(0)" (click)="delete()"> Delete selected computer</a>
     </li>
-  <li>
-      <a class="nav-link active" (click)="selectAll()"> Select all computer of the page</a>
-  </li>
-  <li>
-      <a class="nav-link active" (click)="deselectAll()"> Deselect all computer of the page</a>
+    <li>
+        <a class="nav-link" href="javascript:void(0)" (click)="selectAll()"> Select all computer of the page</a>
+    </li>
+    <li>
+        <a class="nav-link" href="javascript:void(0)" (click)="deselectAll()"> Deselect all computer of the page</a>
+    </li>
+    <li>
+        <a class="nav-link disabled">
+            <p class="text-primary"> Number of computers : {{numberOfComputers}}</p>
+        </a>
     </li>
 </ul>
-<div> Number of correspondant computers : {{numberOfComputers}}</div>
 
+<div class="alert alert-dismissible alert-warning" *ngIf="message">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Warning!</h4>
+    <p class="mb-0">{{ message }}.</p>
+</div>
 
 <div class="card-columns margintop">
     <app-computer class="col" *ngFor="let computer of computers" [computer]="computer" (addDelete)="onDelete($event)" (sendBoolean)="onReceive($event)"></app-computer>

@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Computer} from '../computer.model';
-import {ComputerService} from '../computer.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Computer } from '../computer.model';
+import { ComputerService } from '../computer.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-computers',
@@ -12,7 +12,9 @@ export class ComputersComponent implements OnInit {
 
   computers: Computer[];
   @Input() _search: string;
+  message: String;
   @Input('_search')
+
   set search(value: string) {
     this.states = [];
     this.resetToDelete();
@@ -51,7 +53,7 @@ export class ComputersComponent implements OnInit {
 
   delete() {
     let names = '';
-    for ( let i = 0 ; i < this.toDelete.length - 1 ; i++ ) {
+    for (let i = 0; i < this.toDelete.length - 1; i++) {
       names = names + this.toDelete[i] + ' ; ';
     }
     if (this.toDelete.length > 0) {
@@ -60,23 +62,25 @@ export class ComputersComponent implements OnInit {
       if (confirm('Are you sure to delete ' + names)) {
         for (let i = 0; i < this.toDelete.length; i++) {
           this.computerService.deleteComputer(this.toDelete[i]).
-          subscribe(() => this.router.navigate(['computer']), error => console.error('Error deleting computer(s)', error));
+            subscribe(
+              () => this.router.navigate(['computer']),
+              error => {console.error('Error deleting computer(s)', error); this.message = 'Error deleting computer(s)'; });
         }
       }
     } else {
-      alert('No computer selected');
+      this.message = 'No computer selected';
     }
   }
 
-    selectAll() {
-      for (let i = 0; i < this.states.length; i++) {
-        this.states[i][0] = true;
-          console.log(this.computers[i] + '    ' + i);
-          if (!(this.toDelete.includes(this.computers[i].id))) {
-            this.toDelete.push(this.computers[i].id);
-          }
+  selectAll() {
+    for (let i = 0; i < this.states.length; i++) {
+      this.states[i][0] = true;
+      console.log(this.computers[i] + '    ' + i);
+      if (!(this.toDelete.includes(this.computers[i].id))) {
+        this.toDelete.push(this.computers[i].id);
       }
     }
+  }
 
   deselectAll() {
     for (let i = 0; i < this.states.length; i++) {
@@ -85,17 +89,17 @@ export class ComputersComponent implements OnInit {
     this.toDelete = [];
   }
 
-    onDelete(value: number) {
-      if (this.toDelete.includes(value)) {
-        this.toDelete.splice(this.toDelete.indexOf(value), 1 );
-      } else {
-        this.toDelete.push(value);
-      }
+  onDelete(value: number) {
+    if (this.toDelete.includes(value)) {
+      this.toDelete.splice(this.toDelete.indexOf(value), 1);
+    } else {
+      this.toDelete.push(value);
     }
+  }
 
-    onReceive(value: boolean[]) {
-      this.states.push(value);
-    }
+  onReceive(value: boolean[]) {
+    this.states.push(value);
+  }
 
   constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 

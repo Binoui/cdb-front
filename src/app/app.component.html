@@ -33,15 +33,13 @@
             <i class="fas fa-laptop"></i> Delete a Computer</a>
         </div>
       </li>
-
-      <li class="nav-item">
-        <a i18n class="nav-link" href="#">About</a>
-      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <button *ngIf="this.appService.isLoggedIn()" (click)="showLog()" class="btn btn-secondary my-2 my-sm-0" type="button">Logout</button>
-      <button *ngIf="! this.appService.isLoggedIn()" routerLink='/login' (click)="showLog()" class="btn btn-secondary my-2 my-sm-0" type="button">Login</button>
-      <button *ngIf="! this.appService.isLoggedIn()" routerLink='/register' (click)="showLog()" class="btn btn-secondary my-2 my-sm-0" type="button">Register</button>
+      <button *ngIf="! this.appService.isLoggedIn()" routerLink='/login' (click)="showLog()" class="btn btn-secondary my-2 my-sm-0"
+        type="button">Login</button>
+      <button *ngIf="! this.appService.isLoggedIn()" routerLink='/register' (click)="showLog()" class="btn btn-secondary my-2 my-sm-0"
+        type="button">Register</button>
     </form>
   </div>
 </nav>
