@@ -34,6 +34,10 @@ export class CompaniesComponent implements OnInit {
       numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );
+    this.companyService.getCountCompanies(this._search).subscribe(
+      numberOfCompanies => { this.numberOfCompanies = numberOfCompanies; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Companies', error)
+    );
     this.calculatePages(this.size);
   }
   @Output() searchChange = new EventEmitter<number>();
@@ -50,6 +54,10 @@ export class CompaniesComponent implements OnInit {
       numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );
+    this.companyService.getCountCompanies(this._search).subscribe(
+      numberOfCompanies => { this.numberOfCompanies = numberOfCompanies; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Companies', error)
+    );
     this.calculatePages(this.size);
   }
 
@@ -63,6 +71,10 @@ export class CompaniesComponent implements OnInit {
       numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );
+    this.companyService.getCountCompanies(this._search).subscribe(
+      numberOfCompanies => { this.numberOfCompanies = numberOfCompanies; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Companies', error)
+    );
     this.calculatePages(this.size);
   }
 
@@ -74,6 +86,10 @@ export class CompaniesComponent implements OnInit {
     );
     this.companyService.getCountPageCompanies(this.size, this._search).subscribe(
       numberOfCompanies => {this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Companies', error)
+    );
+    this.companyService.getCountCompanies(this._search).subscribe(
+      numberOfCompanies => { this.numberOfCompanies = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );
     this.calculatePages(this.size);
@@ -124,6 +140,10 @@ export class CompaniesComponent implements OnInit {
       companies => this.companies = companies,
       error => console.error('Error getting list of Companies', error)
     );
+    this.companyService.getCountCompanies(this._search).subscribe(
+      numberOfCompanies => { this.numberOfCompanies = numberOfCompanies; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Companies', error)
+    );
   }
 
   ngOnInit() {
@@ -139,7 +159,7 @@ export class CompaniesComponent implements OnInit {
       numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );
-    this.companyService.getCountCompanies().subscribe(
+    this.companyService.getCountCompanies(this._search).subscribe(
       numberOfCompanies => { this.numberOfCompanies = numberOfCompanies; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
     );

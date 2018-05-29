@@ -28,8 +28,8 @@ export class ComputerService {
     return this.httpClient.get<Computer[]>(this.baseUrl + '/computers');
   }
 
-  getCountComputer() {
-    return this.httpClient.get<number>(this.baseUrl + '/computers/count');
+  getCountComputer(search = '') {
+    return this.httpClient.get<number>(this.baseUrl + '/computers/count?search=' + search);
   }
 
   addComputer(computer: Computer): Observable<Computer> {

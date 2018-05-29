@@ -22,8 +22,12 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Companies', error)
     );
     this.computerService.getCountPageComputer(this.size, this._search).subscribe(
-      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+      numberOfComputers => { this.numberOfPage = numberOfComputers; this.calculatePages(this.size); },
       error => console.error('Error getting count of Companies', error)
+    );
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Computers', error)
     );
   }
   @Output() searchChange = new EventEmitter<number>();
@@ -104,7 +108,7 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Computers', error)
     );
     this.computerService.getCountPageComputer(this.size, this._search).subscribe(
-      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+      numberOfComputers => { this.numberOfPage = numberOfComputers; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
 
@@ -119,7 +123,11 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Computers', error)
     );
     this.computerService.getCountPageComputer(this.size, this._search).subscribe(
-      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+      numberOfComputers => { this.numberOfPage = numberOfComputers; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Computers', error)
+    );
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
   }
@@ -133,7 +141,12 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Computers', error)
     );
     this.computerService.getCountPageComputer(this.size, this._search).subscribe(
-      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+      numberOfComputers => { this.numberOfPage = numberOfComputers; this.calculatePages(this.size); },
+      error => console.error('Error getting count of Computers', error)
+    );
+
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
   }
@@ -181,8 +194,12 @@ export class ComputersComponent implements OnInit {
     this.page = page;
     this.calculatePages(size);
     this.computerService.getComputers(this._search, this.page - 1, this.order, this.asc, this.size).subscribe(
-      companies => this.computers = companies,
+      computers => this.computers = computers,
       error => console.error('Error getting list of Computers', error)
+    );
+    this.computerService.getCountComputer(this._search).subscribe(
+      numberOfComputers => { this.numberOfComputers = numberOfComputers; },
+      error => console.error('Error getting count of Computers', error)
     );
   }
 
@@ -198,11 +215,11 @@ export class ComputersComponent implements OnInit {
       error => console.error('Error getting list of Computers', error)
     );
     this.computerService.getCountPageComputer(this.size).subscribe(
-      numberOfCompanies => { this.numberOfPage = numberOfCompanies; this.calculatePages(this.size); },
+      numberOfComputers => { this.numberOfPage = numberOfComputers; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
     this.computerService.getCountComputer().subscribe(
-      numberOfCompanies => { this.numberOfComputers = numberOfCompanies; this.calculatePages(this.size); },
+      numberOfComputers => { this.numberOfComputers = numberOfComputers; this.calculatePages(this.size); },
       error => console.error('Error getting count of Computers', error)
     );
   }
