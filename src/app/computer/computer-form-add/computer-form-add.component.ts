@@ -17,7 +17,7 @@ export class ComputerFormAddComponent implements OnInit {
     name: new FormControl()
   });
   @Input() companies: Company[];
-  message: String;
+  message: string;
 
   constructor(private computerService: ComputerService, private companyService: CompanyService,
     private router: Router, private fb: FormBuilder) { }
