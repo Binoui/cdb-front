@@ -1,5 +1,8 @@
-<div class="errorMessage" ng-if="message"><h2>{{ message }}</h2></div>
-
+<div class="alert alert-dismissible alert-warning" *ngIf="message">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">Warning!</h4>
+  <p class="mb-0">{{ message }}.</p>
+</div>
 <div class="card border-primary mb-3 mx-auto" style="max-width: 30rem;">
   <div class="card-body">
     <form [formGroup]="userForm">
