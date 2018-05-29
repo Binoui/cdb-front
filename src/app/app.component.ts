@@ -13,7 +13,7 @@ const LOGOUT = 'Logout';
 export class AppComponent {
   title = 'app';
 
-  constructor(private appService: AppService) {
+  constructor(public appService: AppService) {
 
   }
   showLog() {
