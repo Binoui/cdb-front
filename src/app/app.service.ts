@@ -28,15 +28,16 @@ export class AppService {
     const body = 'username=' + username + '&password=' + password;
     return await this.httpClient.post(this.baseUrl + '/register', body, { headers: headers, responseType: 'text' }).toPromise().then(
       (token) => { console.log('token : ' + token); localStorage.setItem('token', token); },
-      (error) => { console.log('error : ', error); throw "error" });
+      (error) => { console.log('error : ', error); });
   }
 
   logout() {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const body = 'token=' + this.getToken();
     this.httpClient.post(this.baseUrl + '/logout', body, { headers: headers, responseType: 'text' }).toPromise().then(
-      () => { console.log('logged out'); localStorage.removeItem('token'); },
-      (error) => { console.log('error : ', error); throw "error" });
+      () => { console.log('logged out');  },
+      (error) => { console.log('error : ', error); });
+    localStorage.removeItem('token');
   }
 
   getToken(): string {
