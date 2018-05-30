@@ -10,9 +10,9 @@
         <legend i18n>Company edition form :</legend>
         <div class="form-group">
           <label i18n for="nameCompany">Company name:</label>
-          <input class="form-control" id="nameCompany" placeholder="Name" type="text" formControlName="name">
+          <input class="form-control" id="nameCompany" placeholder="Name" type="text" value="{{ companyToEdit?.name }}" formControlName="name">
         </div>
-        <button i18n class="btn btn-primary btn-block" (click)="editCompany()"> Create </button>
+        <button i18n class="btn btn-primary btn-block" (click)="editCompany()"> Edit </button>
       </fieldset>
     </form>
     <p i18n type="hidden">Form value: {{ companyForm.status | json }}</p>

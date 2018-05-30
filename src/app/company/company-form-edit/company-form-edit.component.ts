@@ -10,30 +10,31 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./company-form-edit.component.scss']
 })
 export class CompanyFormEditComponent implements OnInit {
-  company = new Company();
   companyForm = new FormGroup ({
     name: new FormControl()
   });
 
-  message: String;
+  companyToEdit: Company;
+
+  message: string;
 
   constructor(private route: ActivatedRoute, private companyService: CompanyService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.company.id = parseInt(this.route.snapshot.paramMap.get('id'), 10 );
-    this.createForm();
+    const id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    this.companyService.getCompany(id).subscribe((company) => { this.companyToEdit = company; this.createForm(company.name) });
   }
 
-  createForm() {
+  createForm(name: string) {
     this.companyForm = this.fb.group({
-      name: ['', Validators.required],
+      name: [name, Validators.required],
     });
   }
 
   editCompany() {
     if (this.companyForm.valid) {
-      this.company.name = this.companyForm.get('name').value;
-      this.companyService.editCompany(this.company).subscribe(
+      this.companyToEdit.name = this.companyForm.get('name').value;
+      this.companyService.editCompany(this.companyToEdit).subscribe(
         () => this.router.navigate(['computer']),
         error => {console.error('Error editing company'); this.message = 'Error editing company'; });
     }

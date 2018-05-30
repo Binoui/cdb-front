@@ -22,7 +22,7 @@
             value="{{ computerToEdit?.discontinued }}">
         </div>
         <div class="form-group">
-          <label i18n for="companyComputer">Company:</label>
+          <label i18n for="companyComputer">Company: [{{ selectedCompany?.name }}]</label>
           <select id="companyComputer" class="form-control" formControlName="companies">
             <option value="0">--</option>
             <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
