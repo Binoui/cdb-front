@@ -12,7 +12,7 @@ export class ComputersComponent implements OnInit {
 
   computers: Computer[];
   @Input() _search: string;
-  message: String;
+  message: string;
   @Input('_search')
 
   set search(value: string) {

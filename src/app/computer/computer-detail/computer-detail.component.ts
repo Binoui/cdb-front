@@ -14,7 +14,7 @@ export class ComputerDetailComponent implements OnInit {
   computerId: number;
   computer: Computer;
   company: Company;
-  message: String;
+  message: string;
 
   constructor(private router: Router, private route: ActivatedRoute, private computerService: ComputerService) { }
 

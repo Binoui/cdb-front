@@ -21,7 +21,7 @@ export class ComputerFormEditComponent implements OnInit {
   });
   @Input() companies: Company[];
   @Input() computerToEdit: Computer;
-  message: String;
+  message: string;
 
   constructor(private route: ActivatedRoute, private computerService: ComputerService, private companyService: CompanyService,
     private router: Router, private fb: FormBuilder) { }

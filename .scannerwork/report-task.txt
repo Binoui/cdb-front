@@ -2,5 +2,5 @@ projectKey=cdb-front
 serverUrl=http://localhost:9000
 serverVersion=7.0.0.36138
 dashboardUrl=http://localhost:9000/dashboard/index/cdb-front
-ceTaskId=AWOsX6yPNtB14RhwMrOl
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWOsX6yPNtB14RhwMrOl
+ceTaskId=AWOsddnvNtB14RhwMrOr
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWOsddnvNtB14RhwMrOr
